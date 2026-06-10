@@ -1,29 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { Hero } from "@/components/sections/Hero";
+import { AuthorityPillars } from "@/components/sections/AuthorityPillars";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { MetingenBand } from "@/components/sections/MetingenBand";
+import { KnowledgeTeasers } from "@/components/sections/KnowledgeTeasers";
+import { SectorsGrid } from "@/components/sections/SectorsGrid";
+import { ContactCta } from "@/components/sections/ContactCta";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Ketenmanagement Interim & Advies — Expert ketensamenwerking" },
+      {
+        name: "description",
+        content:
+          "dr.ing. Marcel Noordhuis helpt bouw, vastgoed, corporaties en gemeenten om ketensamenwerking meetbaar, bestuurbaar en resultaatgericht te maken.",
+      },
+      { property: "og:title", content: "Ketenmanagement Interim & Advies" },
+      {
+        property: "og:description",
+        content: "Van analyse naar succesvolle implementatie van ketensamenwerking.",
+      },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
-  component: Index,
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <SiteShell>
+      <Hero />
+      <AuthorityPillars />
+      <ServicesGrid />
+      <MetingenBand />
+      <KnowledgeTeasers />
+      <SectorsGrid />
+      <ContactCta />
+    </SiteShell>
   );
 }

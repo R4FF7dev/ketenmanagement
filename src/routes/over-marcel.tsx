@@ -1,0 +1,109 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { SectionLabel } from "@/components/ui/section-label";
+import { LinkedInButton } from "@/components/ui/linkedin-button";
+import { ContactCta } from "@/components/sections/ContactCta";
+import abstractImage from "@/assets/abstract-blueprint.jpg";
+import { GraduationCap, Microscope, Users, Target, ArrowRight } from "lucide-react";
+
+const pillars = [
+  { icon: GraduationCap, title: "Gepromoveerd", body: "Wetenschappelijk onderzoek naar ketensamenwerking in bouw en vastgoed." },
+  { icon: Microscope, title: "Onderzoekend", body: "Analyse, data en feiten als basis voor verandering en sturing." },
+  { icon: Users, title: "Verbindend", body: "Werkt op directieniveau én met operationele teams in de keten." },
+  { icon: Target, title: "Resultaatgericht", body: "Focus op meetbare verbetering en duurzame implementatie." },
+];
+
+export const Route = createFileRoute("/over-marcel")({
+  head: () => ({
+    meta: [
+      { title: "Over Marcel Noordhuis — Ketenmanagement Interim & Advies" },
+      {
+        name: "description",
+        content:
+          "dr.ing. Marcel Noordhuis: gepromoveerd specialist in ketensamenwerking voor bouw, vastgoed, corporaties en gemeenten.",
+      },
+      { property: "og:title", content: "Over Marcel Noordhuis" },
+      { property: "og:description", content: "Gepromoveerd specialist in ketensamenwerking." },
+      { property: "og:url", content: "/over-marcel" },
+    ],
+    links: [{ rel: "canonical", href: "/over-marcel" }],
+  }),
+  component: OverMarcel,
+});
+
+function OverMarcel() {
+  return (
+    <SiteShell>
+      <section className="border-b border-hairline bg-surface">
+        <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <SectionLabel number="01">Over Marcel</SectionLabel>
+            <h1 className="heading-rule mt-6 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
+              dr.ing. Marcel Noordhuis
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-soft">
+              Marcel Noordhuis is gepromoveerd op ketensamenwerking in bouw en
+              vastgoed en geldt in Nederland als een gezaghebbende specialist
+              op dit terrein. Hij combineert wetenschappelijke diepgang met
+              jarenlange praktijkervaring in complexe samenwerkingsverbanden.
+            </p>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-soft">
+              Hij adviseert en begeleidt corporaties, gemeenten, bouwbedrijven,
+              installateurs, onderhouds- en vastgoedorganisaties bij het
+              inrichten, meten en doorontwikkelen van ketensamenwerking. Van
+              strategie en governance tot uitvoering, ketenregie en
+              prestatiesturing.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-md bg-orange px-5 py-3 text-sm font-semibold text-white hover:bg-orange/90"
+              >
+                Plan een kennismaking
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <LinkedInButton />
+            </div>
+          </div>
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-hairline bg-navy">
+              <img
+                src={abstractImage}
+                alt="Abstracte architecturale compositie als symbool van ketensamenwerking"
+                width={1280}
+                height={896}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="container-x py-20 md:py-24">
+          <SectionLabel number="02">Aanpak &amp; expertise</SectionLabel>
+          <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
+            Wetenschap én praktijk
+          </h2>
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((p) => {
+              const Icon = p.icon;
+              return (
+                <li key={p.title} className="bg-white p-6">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-navy/5 text-navy">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-navy-deep">{p.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-soft">{p.body}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      <ContactCta />
+    </SiteShell>
+  );
+}
