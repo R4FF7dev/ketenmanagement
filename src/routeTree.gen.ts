@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OverMarcelRouteImport } from './routes/over-marcel'
+import { Route as OpdrachtgeversRouteImport } from './routes/opdrachtgevers'
+import { Route as KetenmetingenRouteImport } from './routes/ketenmetingen'
+import { Route as KennisRouteImport } from './routes/kennis'
+import { Route as DienstenRouteImport } from './routes/diensten'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const OverMarcelRoute = OverMarcelRouteImport.update({
+  id: '/over-marcel',
+  path: '/over-marcel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpdrachtgeversRoute = OpdrachtgeversRouteImport.update({
+  id: '/opdrachtgevers',
+  path: '/opdrachtgevers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KetenmetingenRoute = KetenmetingenRouteImport.update({
+  id: '/ketenmetingen',
+  path: '/ketenmetingen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KennisRoute = KennisRouteImport.update({
+  id: '/kennis',
+  path: '/kennis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DienstenRoute = DienstenRouteImport.update({
+  id: '/diensten',
+  path: '/diensten',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/kennis': typeof KennisRoute
+  '/ketenmetingen': typeof KetenmetingenRoute
+  '/opdrachtgevers': typeof OpdrachtgeversRoute
+  '/over-marcel': typeof OverMarcelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/kennis': typeof KennisRoute
+  '/ketenmetingen': typeof KetenmetingenRoute
+  '/opdrachtgevers': typeof OpdrachtgeversRoute
+  '/over-marcel': typeof OverMarcelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/diensten': typeof DienstenRoute
+  '/kennis': typeof KennisRoute
+  '/ketenmetingen': typeof KetenmetingenRoute
+  '/opdrachtgevers': typeof OpdrachtgeversRoute
+  '/over-marcel': typeof OverMarcelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/diensten'
+    | '/kennis'
+    | '/ketenmetingen'
+    | '/opdrachtgevers'
+    | '/over-marcel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/diensten'
+    | '/kennis'
+    | '/ketenmetingen'
+    | '/opdrachtgevers'
+    | '/over-marcel'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/diensten'
+    | '/kennis'
+    | '/ketenmetingen'
+    | '/opdrachtgevers'
+    | '/over-marcel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  DienstenRoute: typeof DienstenRoute
+  KennisRoute: typeof KennisRoute
+  KetenmetingenRoute: typeof KetenmetingenRoute
+  OpdrachtgeversRoute: typeof OpdrachtgeversRoute
+  OverMarcelRoute: typeof OverMarcelRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/over-marcel': {
+      id: '/over-marcel'
+      path: '/over-marcel'
+      fullPath: '/over-marcel'
+      preLoaderRoute: typeof OverMarcelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/opdrachtgevers': {
+      id: '/opdrachtgevers'
+      path: '/opdrachtgevers'
+      fullPath: '/opdrachtgevers'
+      preLoaderRoute: typeof OpdrachtgeversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ketenmetingen': {
+      id: '/ketenmetingen'
+      path: '/ketenmetingen'
+      fullPath: '/ketenmetingen'
+      preLoaderRoute: typeof KetenmetingenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kennis': {
+      id: '/kennis'
+      path: '/kennis'
+      fullPath: '/kennis'
+      preLoaderRoute: typeof KennisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diensten': {
+      id: '/diensten'
+      path: '/diensten'
+      fullPath: '/diensten'
+      preLoaderRoute: typeof DienstenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +177,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  DienstenRoute: DienstenRoute,
+  KennisRoute: KennisRoute,
+  KetenmetingenRoute: KetenmetingenRoute,
+  OpdrachtgeversRoute: OpdrachtgeversRoute,
+  OverMarcelRoute: OverMarcelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
