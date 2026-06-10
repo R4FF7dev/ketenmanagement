@@ -87,6 +87,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Ketenmanagement Interim & Advies" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Ketenmanagement Interim & Advies — dr.ing. Marcel Noordhuis" },
+      { name: "twitter:title", content: "Ketenmanagement Interim & Advies — dr.ing. Marcel Noordhuis" },
+      { name: "description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { property: "og:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { name: "twitter:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9962d10-3dd4-4405-b578-1afb7043c050/id-preview-f7bd8d54--15318a8c-95f3-4e44-9e00-a580b2824409.lovable.app-1781080962099.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9962d10-3dd4-4405-b578-1afb7043c050/id-preview-f7bd8d54--15318a8c-95f3-4e44-9e00-a580b2824409.lovable.app-1781080962099.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
