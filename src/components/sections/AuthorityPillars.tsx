@@ -1,6 +1,7 @@
 import { AUTHORITY, SITE } from "@/content/site";
 import { Linkedin, ArrowUpRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/section-label";
+import { LinkedInWidgetEmbed } from "@/components/sections/LinkedInFeed";
 
 export function AuthorityPillars() {
   return (
@@ -69,6 +70,15 @@ export function AuthorityPillars() {
               </li>
             </div>
           </ol>
+        </div>
+
+        <div className="mt-14 border-t border-hairline pt-14">
+          <h3 className="font-display text-xl font-semibold text-navy-deep">
+            Laatste updates van Marcel op LinkedIn
+          </h3>
+          <div className="mt-6">
+            <LinkedInWidgetEmbed />
+          </div>
         </div>
       </div>
     </section>

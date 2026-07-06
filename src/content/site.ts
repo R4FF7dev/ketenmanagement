@@ -24,6 +24,11 @@ export const SITE = {
   website: "https://www.ketenmanagement.com/",
 };
 
+// SociableKIT "LinkedIn Profile Posts" widget (Pro plan, sociablekit.com).
+// TODO: replace once Marcel finishes SociableKIT signup + LinkedIn OAuth and
+// generates the real embed snippet from the SociableKIT dashboard.
+export const SOCIABLEKIT_LINKEDIN_WIDGET_ID = "PLACEHOLDER_WIDGET_ID";
+
 export const NAV = [
   { to: "/", label: "Home" },
   { to: "/over-marcel", label: "Over Marcel" },

@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { KnowledgeTeasers } from "@/components/sections/KnowledgeTeasers";
+import {
+  LinkedInFeed,
+  isLinkedInWidgetConfigured,
+  linkedInWidgetScriptSrc,
+} from "@/components/sections/LinkedInFeed";
 import { ContactCta } from "@/components/sections/ContactCta";
 import { SectionLabel } from "@/components/ui/section-label";
 import { SITE } from "@/content/site";
@@ -20,6 +25,7 @@ export const Route = createFileRoute("/kennis")({
       { property: "og:url", content: "/kennis" },
     ],
     links: [{ rel: "canonical", href: "/kennis" }],
+    scripts: isLinkedInWidgetConfigured ? [{ src: linkedInWidgetScriptSrc, defer: true }] : [],
   }),
   component: KennisPage,
 });
@@ -53,6 +59,7 @@ function KennisPage() {
       </section>
 
       <KnowledgeTeasers />
+      <LinkedInFeed />
       <ContactCta />
     </SiteShell>
   );

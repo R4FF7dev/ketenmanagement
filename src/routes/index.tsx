@@ -2,6 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Hero } from "@/components/sections/Hero";
 import { AuthorityPillars } from "@/components/sections/AuthorityPillars";
+import {
+  isLinkedInWidgetConfigured,
+  linkedInWidgetScriptSrc,
+} from "@/components/sections/LinkedInFeed";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { MetingenBand } from "@/components/sections/MetingenBand";
 import { KnowledgeTeasers } from "@/components/sections/KnowledgeTeasers";
@@ -25,6 +29,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: isLinkedInWidgetConfigured ? [{ src: linkedInWidgetScriptSrc, defer: true }] : [],
   }),
   component: HomePage,
 });
