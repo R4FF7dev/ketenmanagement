@@ -10,7 +10,11 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
+import ogImage from "../assets/hero-urban.jpg";
+import { reportClientError } from "../lib/error-reporting";
+import { SITE } from "../content/site";
+
+const ogImageUrl = new URL(ogImage, SITE.website).toString();
 
 function NotFoundComponent() {
   return (
@@ -38,7 +42,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportClientError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
 
   return (
@@ -92,8 +96,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
       { property: "og:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
       { name: "twitter:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9962d10-3dd4-4405-b578-1afb7043c050/id-preview-f7bd8d54--15318a8c-95f3-4e44-9e00-a580b2824409.lovable.app-1781080962099.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9962d10-3dd4-4405-b578-1afb7043c050/id-preview-f7bd8d54--15318a8c-95f3-4e44-9e00-a580b2824409.lovable.app-1781080962099.png" },
+      { property: "og:image", content: ogImageUrl },
+      { property: "og:image:width", content: "1920" },
+      { property: "og:image:height", content: "1080" },
+      { name: "twitter:image", content: ogImageUrl },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
