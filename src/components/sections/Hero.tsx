@@ -5,7 +5,75 @@ import heroImage from "@/assets/hero-urban.jpg";
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-surface">
-      <div className="blueprint-bg absolute inset-0 opacity-50" aria-hidden />
+      <div
+        className="ambient-glow-orange absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full"
+        aria-hidden
+      />
+      <div
+        className="ambient-glow-navy absolute -bottom-40 -left-20 h-[480px] w-[480px] rounded-full"
+        aria-hidden
+      />
+      <div className="blueprint-bg blueprint-drift absolute inset-0 opacity-50" aria-hidden />
+      <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        <div
+          className="zip-line-h zip-anim-right"
+          style={
+            { top: "12%", "--zip-duration": "4.6s", "--zip-delay": "-0.4s" } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-h zip-anim-left"
+          style={
+            {
+              top: "34%",
+              "--zip-duration": "6.1s",
+              "--zip-delay": "-2.8s",
+              "--zip-color": "var(--color-navy)",
+            } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-h zip-anim-right"
+          style={
+            { top: "61%", "--zip-duration": "5.3s", "--zip-delay": "-4.1s" } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-h zip-anim-left"
+          style={
+            { top: "83%", "--zip-duration": "5.9s", "--zip-delay": "-1.5s" } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-v zip-anim-down"
+          style={
+            { left: "20%", "--zip-duration": "5.5s", "--zip-delay": "-1.1s" } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-v zip-anim-up"
+          style={
+            {
+              left: "48%",
+              "--zip-duration": "4.8s",
+              "--zip-delay": "-3.4s",
+              "--zip-color": "var(--color-navy)",
+            } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-v zip-anim-down"
+          style={
+            { left: "72%", "--zip-duration": "6.4s", "--zip-delay": "-0.7s" } as React.CSSProperties
+          }
+        />
+        <div
+          className="zip-line-v zip-anim-up"
+          style={
+            { left: "90%", "--zip-duration": "5.1s", "--zip-delay": "-2.3s" } as React.CSSProperties
+          }
+        />
+      </div>
       <div className="container-x relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-10 lg:py-32">
         <div className="lg:col-span-7">
           <div className="section-label">
@@ -14,14 +82,12 @@ export function Hero() {
             <span>Bouw · Vastgoed · Onderhoud</span>
           </div>
           <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-navy-deep md:text-5xl lg:text-6xl">
-            Ketensamenwerking in bouw, vastgoed en onderhoud
-            <span className="text-orange"> — </span>
-            van analyse naar succesvolle implementatie.
+            <span className="text-breathing-gradient">Ketensamenwerking</span> van analyse naar
+            succesvolle implementatie.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-soft">
-            dr.ing. Marcel Noordhuis helpt corporaties, gemeenten, bouwers,
-            installateurs en vastgoedorganisaties om complexe samenwerkingen
-            meetbaar, bestuurbaar en resultaatgericht te maken.
+            Wij helpen corporaties, gemeenten, bouwers, installateurs en vastgoedorganisaties om
+            complexe samenwerkingen meetbaar, bestuurbaar en resultaatgericht te maken.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
@@ -78,12 +144,10 @@ export function Hero() {
               <div className="flex items-start gap-3">
                 <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                 <div>
-                  <div className="text-sm font-semibold text-white">
-                    dr.ing. Marcel Noordhuis
-                  </div>
+                  <div className="text-sm font-semibold text-white">dr.ing. Marcel Noordhuis</div>
                   <p className="mt-1 text-xs leading-relaxed text-white/75">
-                    Gepromoveerd op ketensamenwerking. Onafhankelijk specialist
-                    voor corporaties, gemeenten, bouwers en installateurs.
+                    Gepromoveerd op ketensamenwerking. Onafhankelijk specialist voor corporaties,
+                    gemeenten, bouwers en installateurs.
                   </p>
                   <div className="mt-3 flex items-center gap-1.5 text-[11px] text-white/70">
                     <CheckCircle2 className="h-3.5 w-3.5 text-orange" aria-hidden />

@@ -147,3 +147,225 @@
     linear-gradient(to bottom, color-mix(in oklab, var(--color-orange) 8%, transparent) 1px, transparent 1px);
   background-size: 64px 64px;
 }
+
+/* Caps a tall embedded widget to a preview height, fading into the
+   surrounding section background instead of a hard cutoff. */
+@utility widget-fade-white {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 6rem;
+    background: linear-gradient(to bottom, transparent, var(--color-white, #fff));
+    pointer-events: none;
+  }
+}
+
+@keyframes blueprint-drift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 64px 64px;
+  }
+}
+
+@utility blueprint-drift {
+  animation: blueprint-drift 50s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes ambient-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(4%, -4%) scale(1.08);
+  }
+}
+
+@keyframes ambient-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-4%, 5%) scale(1.05);
+  }
+}
+
+@utility ambient-glow-orange {
+  background: radial-gradient(circle, var(--color-orange) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.14;
+  animation: ambient-float-a 22s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@utility ambient-glow-navy {
+  background: radial-gradient(circle, var(--color-navy) 0%, transparent 70%);
+  filter: blur(90px);
+  opacity: 0.1;
+  animation: ambient-float-b 28s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Fast "data" streaks that zip across the blueprint grid, each mostly idle
+   and only visible for a brief moment per cycle; varied durations/negative
+   delays per instance (set inline) keep them from ever looking synchronized. */
+@keyframes zip-right {
+  0%,
+  70% {
+    left: -8%;
+    opacity: 0;
+  }
+  74% {
+    opacity: 0.4;
+  }
+  84% {
+    left: 108%;
+    opacity: 0.4;
+  }
+  88%,
+  100% {
+    left: 108%;
+    opacity: 0;
+  }
+}
+
+@keyframes zip-left {
+  0%,
+  70% {
+    left: 108%;
+    opacity: 0;
+  }
+  74% {
+    opacity: 0.4;
+  }
+  84% {
+    left: -8%;
+    opacity: 0.4;
+  }
+  88%,
+  100% {
+    left: -8%;
+    opacity: 0;
+  }
+}
+
+@keyframes zip-down {
+  0%,
+  70% {
+    top: -8%;
+    opacity: 0;
+  }
+  74% {
+    opacity: 0.4;
+  }
+  84% {
+    top: 108%;
+    opacity: 0.4;
+  }
+  88%,
+  100% {
+    top: 108%;
+    opacity: 0;
+  }
+}
+
+@keyframes zip-up {
+  0%,
+  70% {
+    top: 108%;
+    opacity: 0;
+  }
+  74% {
+    opacity: 0.4;
+  }
+  84% {
+    top: -8%;
+    opacity: 0.4;
+  }
+  88%,
+  100% {
+    top: -8%;
+    opacity: 0;
+  }
+}
+
+@utility zip-line-h {
+  position: absolute;
+  height: 1px;
+  width: 72px;
+  background: linear-gradient(to right, transparent, var(--zip-color, var(--color-orange)), transparent);
+  animation-duration: var(--zip-duration, 5s);
+  animation-delay: var(--zip-delay, 0s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@utility zip-line-v {
+  position: absolute;
+  width: 1px;
+  height: 72px;
+  background: linear-gradient(to bottom, transparent, var(--zip-color, var(--color-orange)), transparent);
+  animation-duration: var(--zip-duration, 5s);
+  animation-delay: var(--zip-delay, 0s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@utility zip-anim-right {
+  animation-name: zip-right;
+}
+@utility zip-anim-left {
+  animation-name: zip-left;
+}
+@utility zip-anim-down {
+  animation-name: zip-down;
+}
+@utility zip-anim-up {
+  animation-name: zip-up;
+}
+
+@keyframes breathing-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.88;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+}
+
+@utility text-breathing-gradient {
+  background-image: linear-gradient(90deg, var(--color-ink) 0%, var(--color-orange) 50%, var(--color-ink) 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: breathing-gradient 18s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    color: var(--color-ink);
+    background-image: none;
+  }
+}
