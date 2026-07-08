@@ -19,9 +19,9 @@ export function MetingenBand() {
               Maak ketensamenwerking meetbaar
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
-              Samenwerking wordt pas bestuurbaar wanneer ze zichtbaar en
-              meetbaar is. Met bewezen metingen brengt Marcel de volwassenheid,
-              kwaliteit en ontwikkeling van uw keten in kaart.
+              Samenwerking wordt pas bestuurbaar wanneer ze zichtbaar en meetbaar is. Met bewezen
+              metingen brengen wij de volwassenheid, kwaliteit en ontwikkeling van uw keten in
+              kaart.
             </p>
             <Link
               to="/ketenmetingen"
@@ -44,12 +44,8 @@ export function MetingenBand() {
                   </span>
                   <span className="h-px flex-1 bg-white/10" aria-hidden />
                 </div>
-                <h3 className="mt-5 font-display text-lg font-semibold text-white">
-                  {m.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {m.body}
-                </p>
+                <h3 className="mt-5 font-display text-lg font-semibold text-white">{m.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{m.body}</p>
               </li>
             ))}
           </ul>

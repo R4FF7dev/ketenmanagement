@@ -40,10 +40,9 @@ function KennisPage() {
             Inzichten over ketensamenwerking
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Marcel deelt regelmatig artikelen, onderzoeksinzichten en
-            praktijkervaringen over ketensamenwerking in bouw, vastgoed en
-            onderhoud. Een groeiend kennisplatform voor opdrachtgevers,
-            bestuurders en professionals.
+            Wij delen regelmatig artikelen, onderzoeksinzichten en praktijkervaringen over
+            ketensamenwerking in bouw, vastgoed en onderhoud. Een groeiend kennisplatform voor
+            opdrachtgevers, bestuurders en professionals.
           </p>
           <a
             href={SITE.blog}

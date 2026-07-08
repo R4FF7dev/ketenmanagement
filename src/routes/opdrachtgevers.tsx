@@ -29,13 +29,12 @@ function OpdrachtgeversPage() {
         <div className="container-x py-16 md:py-24">
           <SectionLabel number="01">Opdrachtgevers</SectionLabel>
           <h1 className="heading-rule mt-5 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
-            Voor wie werkt Marcel?
+            Voor wie werken wij?
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Marcel adviseert toonaangevende organisaties die in complexe
-            ketens werken aan grote bouw-, vastgoed- en maatschappelijke
-            opgaven — van strategische vraagstukken op directieniveau tot
-            ketenregie in de uitvoering.
+            Wij adviseren toonaangevende organisaties die in complexe ketens werken aan grote bouw-,
+            vastgoed- en maatschappelijke opgaven — van strategische vraagstukken op directieniveau
+            tot ketenregie in de uitvoering.
           </p>
         </div>
       </section>
@@ -50,9 +49,9 @@ function OpdrachtgeversPage() {
               Cases op aanvraag
             </h2>
             <p className="mt-3 max-w-2xl text-base text-slate-soft">
-              Vanwege de strategische en vertrouwelijke aard van veel trajecten
-              worden cases en referenties uitsluitend op aanvraag en in overleg
-              met opdrachtgevers gedeeld. Neem contact op voor een toelichting.
+              Vanwege de strategische en vertrouwelijke aard van veel trajecten worden cases en
+              referenties uitsluitend op aanvraag en in overleg met opdrachtgevers gedeeld. Neem
+              contact op voor een toelichting.
             </p>
           </div>
         </div>

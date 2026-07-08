@@ -9,7 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as OverMarcelRouteImport } from './routes/over-marcel'
+import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as OpdrachtgeversRouteImport } from './routes/opdrachtgevers'
 import { Route as KetenmetingenRouteImport } from './routes/ketenmetingen'
 import { Route as KennisRouteImport } from './routes/kennis'
@@ -17,9 +17,9 @@ import { Route as DienstenRouteImport } from './routes/diensten'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
-const OverMarcelRoute = OverMarcelRouteImport.update({
-  id: '/over-marcel',
-  path: '/over-marcel',
+const OverOnsRoute = OverOnsRouteImport.update({
+  id: '/over-ons',
+  path: '/over-ons',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OpdrachtgeversRoute = OpdrachtgeversRouteImport.update({
@@ -60,7 +60,7 @@ export interface FileRoutesByFullPath {
   '/kennis': typeof KennisRoute
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
-  '/over-marcel': typeof OverMarcelRoute
+  '/over-ons': typeof OverOnsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -69,7 +69,7 @@ export interface FileRoutesByTo {
   '/kennis': typeof KennisRoute
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
-  '/over-marcel': typeof OverMarcelRoute
+  '/over-ons': typeof OverOnsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -79,7 +79,7 @@ export interface FileRoutesById {
   '/kennis': typeof KennisRoute
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
-  '/over-marcel': typeof OverMarcelRoute
+  '/over-ons': typeof OverOnsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -90,7 +90,7 @@ export interface FileRouteTypes {
     | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
-    | '/over-marcel'
+    | '/over-ons'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -99,7 +99,7 @@ export interface FileRouteTypes {
     | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
-    | '/over-marcel'
+    | '/over-ons'
   id:
     | '__root__'
     | '/'
@@ -108,7 +108,7 @@ export interface FileRouteTypes {
     | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
-    | '/over-marcel'
+    | '/over-ons'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -118,16 +118,16 @@ export interface RootRouteChildren {
   KennisRoute: typeof KennisRoute
   KetenmetingenRoute: typeof KetenmetingenRoute
   OpdrachtgeversRoute: typeof OpdrachtgeversRoute
-  OverMarcelRoute: typeof OverMarcelRoute
+  OverOnsRoute: typeof OverOnsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/over-marcel': {
-      id: '/over-marcel'
-      path: '/over-marcel'
-      fullPath: '/over-marcel'
-      preLoaderRoute: typeof OverMarcelRouteImport
+    '/over-ons': {
+      id: '/over-ons'
+      path: '/over-ons'
+      fullPath: '/over-ons'
+      preLoaderRoute: typeof OverOnsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/opdrachtgevers': {
@@ -182,7 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   KennisRoute: KennisRoute,
   KetenmetingenRoute: KetenmetingenRoute,
   OpdrachtgeversRoute: OpdrachtgeversRoute,
-  OverMarcelRoute: OverMarcelRoute,
+  OverOnsRoute: OverOnsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

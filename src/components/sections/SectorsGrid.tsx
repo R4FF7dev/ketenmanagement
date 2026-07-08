@@ -9,11 +9,11 @@ export function SectorsGrid() {
           <div className="lg:col-span-5">
             <SectionLabel number="05">Opdrachtgevers</SectionLabel>
             <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
-              Voor wie werkt Marcel?
+              Voor wie werken wij?
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-slate-soft">
-              Organisaties die in complexe ketens samenwerken aan grote
-              maatschappelijke en bouwopgaven. Onafhankelijk en sectoroverstijgend.
+              Organisaties die in complexe ketens samenwerken aan grote maatschappelijke en
+              bouwopgaven. Onafhankelijk en sectoroverstijgend.
             </p>
           </div>
 
@@ -25,9 +25,7 @@ export function SectorsGrid() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-md bg-navy/5 text-navy">
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
-                  <span className="text-sm font-semibold text-navy-deep">
-                    {s.title}
-                  </span>
+                  <span className="text-sm font-semibold text-navy-deep">{s.title}</span>
                 </li>
               );
             })}
@@ -38,13 +36,10 @@ export function SectorsGrid() {
         </div>
 
         <div className="mt-12 rounded-lg border border-dashed border-hairline bg-white p-6">
-          <div className="text-xs uppercase tracking-[0.18em] text-slate-soft">
-            Opdrachtgevers
-          </div>
+          <div className="text-xs uppercase tracking-[0.18em] text-slate-soft">Opdrachtgevers</div>
           <p className="mt-2 text-sm text-slate-soft">
-            Marcel werkt voor toonaangevende corporaties, gemeenten, bouwers en
-            installateurs. Logo's worden uitsluitend met toestemming van
-            opdrachtgevers getoond.
+            Wij werken voor toonaangevende corporaties, gemeenten, bouwers en installateurs. Logo's
+            worden uitsluitend met toestemming van opdrachtgevers getoond.
           </p>
         </div>
       </div>

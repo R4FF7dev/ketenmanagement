@@ -15,10 +15,9 @@ export function ServicesGrid() {
             </h2>
           </div>
           <p className="text-base leading-relaxed text-slate-soft md:col-span-7 md:pt-12">
-            Van analyse en strategie tot implementatie, ketenregie en
-            dashboarding. Marcel ondersteunt organisaties bij het professioneel
-            inrichten, meten en verbeteren van samenwerkingen in complexe
-            ketens.
+            Van analyse en strategie tot implementatie, ketenregie en dashboarding. Wij ondersteunen
+            organisaties bij het professioneel inrichten, meten en verbeteren van samenwerkingen in
+            complexe ketens.
           </p>
         </div>
 
@@ -26,7 +25,10 @@ export function ServicesGrid() {
           {SERVICES.map((s) => {
             const Icon = s.icon;
             return (
-              <li key={s.slug} className="group relative bg-white p-8 transition-colors hover:bg-surface">
+              <li
+                key={s.slug}
+                className="group relative bg-white p-8 transition-colors hover:bg-surface"
+              >
                 <span
                   className="absolute inset-y-0 left-0 w-0.5 bg-orange opacity-0 transition-opacity group-hover:opacity-100"
                   aria-hidden
@@ -37,9 +39,7 @@ export function ServicesGrid() {
                 <h3 className="mt-6 font-display text-lg font-semibold text-navy-deep">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-soft">
-                  {s.short}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-soft">{s.short}</p>
                 <Link
                   to="/diensten"
                   hash={s.slug}

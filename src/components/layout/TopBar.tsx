@@ -6,7 +6,7 @@ export function TopBar() {
     <div className="hidden bg-navy-deep text-white/80 md:block">
       <div className="container-x flex h-9 items-center justify-between text-xs">
         <span className="tracking-wide">
-          dr.ing. Marcel Noordhuis · Specialist ketensamenwerking
+          Ketenmanagement Interim &amp; Advies · Specialist ketensamenwerking
         </span>
         <div className="flex items-center gap-5">
           <a
@@ -23,7 +23,7 @@ export function TopBar() {
             className="inline-flex items-center gap-1.5 hover:text-white"
           >
             <Linkedin className="h-3.5 w-3.5" aria-hidden />
-            Volg Marcel op LinkedIn
+            Volg ons op LinkedIn
           </a>
         </div>
       </div>

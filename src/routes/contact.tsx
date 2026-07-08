@@ -34,8 +34,8 @@ function ContactPage() {
             Plan een kennismaking
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Vertel kort waar uw vraagstuk over gaat. Marcel neemt persoonlijk
-            contact met u op voor een vrijblijvende kennismaking.
+            Vertel kort waar uw vraagstuk over gaat. Wij nemen persoonlijk contact met u op voor een
+            vrijblijvende kennismaking.
           </p>
         </div>
       </section>
@@ -48,44 +48,67 @@ function ContactPage() {
 
           <aside className="lg:col-span-5">
             <div className="rounded-lg border border-hairline bg-surface p-8">
-              <h2 className="font-display text-xl font-semibold text-navy-deep">
-                Contactgegevens
-              </h2>
+              <h2 className="font-display text-xl font-semibold text-navy-deep">Contactgegevens</h2>
               <dl className="mt-6 space-y-5 text-sm">
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">Naam</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Naam
+                  </dt>
                   <dd className="mt-1 text-navy-deep">{SITE.person}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">Bedrijf</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Bedrijf
+                  </dt>
                   <dd className="mt-1 text-navy-deep">{SITE.name}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">E-mail</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    E-mail
+                  </dt>
                   <dd className="mt-1">
-                    <a className="inline-flex items-center gap-2 text-navy hover:text-orange" href={`mailto:${SITE.email}`}>
+                    <a
+                      className="inline-flex items-center gap-2 text-navy hover:text-orange"
+                      href={`mailto:${SITE.email}`}
+                    >
                       <Mail className="h-4 w-4" aria-hidden /> {SITE.email}
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">Website</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Website
+                  </dt>
                   <dd className="mt-1">
-                    <a className="inline-flex items-center gap-2 text-navy hover:text-orange" href={SITE.website} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className="inline-flex items-center gap-2 text-navy hover:text-orange"
+                      href={SITE.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Globe className="h-4 w-4" aria-hidden /> ketenmanagement.com
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">Kennisblog</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Kennisblog
+                  </dt>
                   <dd className="mt-1">
-                    <a className="inline-flex items-center gap-2 text-navy hover:text-orange" href={SITE.blog} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className="inline-flex items-center gap-2 text-navy hover:text-orange"
+                      href={SITE.blog}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <BookOpen className="h-4 w-4" aria-hidden /> ketensamenwerking.blog
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">Regio</dt>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Regio
+                  </dt>
                   <dd className="mt-1 inline-flex items-center gap-2 text-navy-deep">
                     <MapPin className="h-4 w-4 text-orange" aria-hidden /> Nederland
                   </dd>

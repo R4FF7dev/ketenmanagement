@@ -25,13 +25,11 @@ export const SITE = {
 };
 
 // SociableKIT "LinkedIn Profile Posts" widget (Pro plan, sociablekit.com).
-// TODO: replace once Marcel finishes SociableKIT signup + LinkedIn OAuth and
-// generates the real embed snippet from the SociableKIT dashboard.
-export const SOCIABLEKIT_LINKEDIN_WIDGET_ID = "PLACEHOLDER_WIDGET_ID";
+export const SOCIABLEKIT_LINKEDIN_WIDGET_ID: string = "25695335";
 
 export const NAV = [
   { to: "/", label: "Home" },
-  { to: "/over-marcel", label: "Over Marcel" },
+  { to: "/over-ons", label: "Over ons" },
   { to: "/diensten", label: "Diensten" },
   { to: "/ketenmetingen", label: "Ketenmetingen" },
   { to: "/kennis", label: "Kennis & Publicaties" },
@@ -72,8 +70,7 @@ export const SERVICES = [
     slug: "dashboarding",
     icon: GaugeCircle,
     title: "Dashboarding & prestatiesturing",
-    short:
-      "Meetbaar maken van samenwerking, prestaties, doelen, voortgang en verbeterpunten.",
+    short: "Meetbaar maken van samenwerking, prestaties, doelen, voortgang en verbeterpunten.",
   },
   {
     slug: "sessies",

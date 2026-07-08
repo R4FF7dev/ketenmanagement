@@ -33,10 +33,9 @@ function KetenmetingenPage() {
             Maak ketensamenwerking meetbaar
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Samenwerking wordt pas bestuurbaar wanneer ze zichtbaar en
-            meetbaar is. Met bewezen instrumenten brengt Marcel de
-            volwassenheid, kwaliteit en ontwikkeling van uw keten in kaart —
-            als basis voor gericht verbeteren en sturen.
+            Samenwerking wordt pas bestuurbaar wanneer ze zichtbaar en meetbaar is. Met bewezen
+            instrumenten brengen wij de volwassenheid, kwaliteit en ontwikkeling van uw keten in
+            kaart — als basis voor gericht verbeteren en sturen.
           </p>
         </div>
       </section>
@@ -58,17 +57,15 @@ function KetenmetingenPage() {
                 <h2 className="mt-5 font-display text-2xl font-semibold text-navy-deep">
                   {m.title}
                 </h2>
-                <p className="mt-3 text-base leading-relaxed text-slate-soft">
-                  {m.body}
-                </p>
+                <p className="mt-3 text-base leading-relaxed text-slate-soft">{m.body}</p>
               </li>
             ))}
           </ul>
 
           <div className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-lg bg-surface p-8">
             <p className="max-w-xl text-base text-navy-deep">
-              Welke meting past bij uw organisatie en opgave? Marcel adviseert
-              u graag in een vrijblijvende kennismaking.
+              Welke meting past bij uw organisatie en opgave? Wij adviseren u graag in een
+              vrijblijvende kennismaking.
             </p>
             <Link
               to="/contact"

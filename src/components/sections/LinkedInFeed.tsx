@@ -1,25 +1,48 @@
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/section-label";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { SOCIABLEKIT_LINKEDIN_WIDGET_ID } from "@/content/site";
 
-// SociableKIT's documented pattern across their widget line is a
-// `sk-ww-{widget-type}` container div + `{widget-type}/widget.js` script,
-// both keyed by data-embed-id. TODO: confirm the exact class name
-// ("sk-ww-linkedin-profile-posts") against the real snippet SociableKIT
-// generates once Marcel completes setup — adjust if it differs.
-const WIDGET_TYPE = "linkedin-profile-posts";
-const WIDGET_CLASS = `sk-ww-${WIDGET_TYPE}`;
+// Confirmed against the real embed snippet from the SociableKIT dashboard.
+// Note the container class is singular ("profile-post") while the script
+// path is plural ("profile-posts") — SociableKIT isn't consistent here.
+const WIDGET_CLASS = "sk-ww-linkedin-profile-post";
 
-export const linkedInWidgetScriptSrc = `https://widgets.sociablekit.com/${WIDGET_TYPE}/widget.js`;
+export const linkedInWidgetScriptSrc =
+  "https://widgets.sociablekit.com/linkedin-profile-posts/widget.js";
 export const isLinkedInWidgetConfigured =
   SOCIABLEKIT_LINKEDIN_WIDGET_ID !== "PLACEHOLDER_WIDGET_ID";
 
-export function LinkedInWidgetEmbed() {
-  return isLinkedInWidgetConfigured ? (
-    <div className={WIDGET_CLASS} data-embed-id={SOCIABLEKIT_LINKEDIN_WIDGET_ID} />
-  ) : (
-    <div className="rounded-lg border border-dashed border-hairline bg-white p-10 text-center text-sm text-slate-soft">
-      LinkedIn-feed wordt binnenkort toegevoegd.
+export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) {
+  if (!isLinkedInWidgetConfigured) {
+    return (
+      <div className="rounded-lg border border-dashed border-hairline bg-white p-10 text-center text-sm text-slate-soft">
+        LinkedIn-feed wordt binnenkort toegevoegd.
+      </div>
+    );
+  }
+
+  const widget = (
+    <div
+      className={WIDGET_CLASS}
+      data-embed-id={SOCIABLEKIT_LINKEDIN_WIDGET_ID}
+      suppressHydrationWarning
+    />
+  );
+
+  if (!compact) return widget;
+
+  return (
+    <div>
+      <div className="widget-fade-white max-h-[420px] overflow-hidden">{widget}</div>
+      <Link
+        to="/kennis"
+        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
+      >
+        Bekijk meer op LinkedIn
+        <ArrowRight className="h-4 w-4" aria-hidden />
+      </Link>
     </div>
   );
 }
@@ -32,10 +55,10 @@ export function LinkedInFeed() {
           <div>
             <SectionLabel number="02">LinkedIn</SectionLabel>
             <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
-              Laatste updates van Marcel op LinkedIn
+              Onze laatste updates op LinkedIn
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-soft">
-              Volg de laatste artikelen, inzichten en posts van Marcel rechtstreeks vanaf LinkedIn.
+              Volg onze laatste artikelen, inzichten en posts rechtstreeks vanaf LinkedIn.
             </p>
           </div>
           <LinkedInButton variant="solid" />

@@ -6,7 +6,7 @@ type Variant = "solid" | "outline" | "ghost" | "icon";
 
 export function LinkedInButton({
   variant = "outline",
-  label = "Volg Marcel op LinkedIn",
+  label = "Volg ons op LinkedIn",
   className,
 }: {
   variant?: Variant;
@@ -16,12 +16,10 @@ export function LinkedInButton({
   const base =
     "inline-flex items-center gap-2 font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
   const styles: Record<Variant, string> = {
-    solid:
-      "rounded-md bg-[#0A66C2] px-4 py-2.5 text-sm text-white hover:bg-[#084d92]",
+    solid: "rounded-md bg-[#0A66C2] px-4 py-2.5 text-sm text-white hover:bg-[#084d92]",
     outline:
       "rounded-md border border-hairline bg-white px-4 py-2.5 text-sm text-navy hover:border-navy hover:text-navy-deep",
-    ghost:
-      "text-sm text-white/85 hover:text-white",
+    ghost: "text-sm text-white/85 hover:text-white",
     icon: "rounded-md border border-hairline bg-white p-2.5 text-navy hover:border-navy",
   };
   return (

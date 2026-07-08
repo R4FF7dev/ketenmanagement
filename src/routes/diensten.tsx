@@ -35,10 +35,9 @@ function DienstenPage() {
             Diensten voor betere ketensamenwerking
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Van analyse en strategie tot implementatie, ketenregie en
-            dashboarding. Marcel ondersteunt organisaties bij het professioneel
-            inrichten, meten en verbeteren van samenwerkingen in complexe
-            ketens.
+            Van analyse en strategie tot implementatie, ketenregie en dashboarding. Wij ondersteunen
+            organisaties bij het professioneel inrichten, meten en verbeteren van samenwerkingen in
+            complexe ketens.
           </p>
         </div>
       </section>
@@ -68,9 +67,7 @@ function DienstenPage() {
                     <h2 className="font-display text-2xl font-semibold text-navy-deep">
                       {s.title}
                     </h2>
-                    <p className="mt-4 text-base leading-relaxed text-slate-soft">
-                      {s.short}
-                    </p>
+                    <p className="mt-4 text-base leading-relaxed text-slate-soft">{s.short}</p>
                   </div>
                 </article>
               );

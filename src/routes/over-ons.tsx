@@ -7,13 +7,29 @@ import abstractImage from "@/assets/abstract-blueprint.jpg";
 import { GraduationCap, Microscope, Users, Target, ArrowRight } from "lucide-react";
 
 const pillars = [
-  { icon: GraduationCap, title: "Gepromoveerd", body: "Wetenschappelijk onderzoek naar ketensamenwerking in bouw en vastgoed." },
-  { icon: Microscope, title: "Onderzoekend", body: "Analyse, data en feiten als basis voor verandering en sturing." },
-  { icon: Users, title: "Verbindend", body: "Werkt op directieniveau én met operationele teams in de keten." },
-  { icon: Target, title: "Resultaatgericht", body: "Focus op meetbare verbetering en duurzame implementatie." },
+  {
+    icon: GraduationCap,
+    title: "Gepromoveerd",
+    body: "Wetenschappelijk onderzoek naar ketensamenwerking in bouw en vastgoed.",
+  },
+  {
+    icon: Microscope,
+    title: "Onderzoekend",
+    body: "Analyse, data en feiten als basis voor verandering en sturing.",
+  },
+  {
+    icon: Users,
+    title: "Verbindend",
+    body: "Werkt op directieniveau én met operationele teams in de keten.",
+  },
+  {
+    icon: Target,
+    title: "Resultaatgericht",
+    body: "Focus op meetbare verbetering en duurzame implementatie.",
+  },
 ];
 
-export const Route = createFileRoute("/over-marcel")({
+export const Route = createFileRoute("/over-ons")({
   head: () => ({
     meta: [
       { title: "Over Marcel Noordhuis — Ketenmanagement Interim & Advies" },
@@ -24,34 +40,33 @@ export const Route = createFileRoute("/over-marcel")({
       },
       { property: "og:title", content: "Over Marcel Noordhuis" },
       { property: "og:description", content: "Gepromoveerd specialist in ketensamenwerking." },
-      { property: "og:url", content: "/over-marcel" },
+      { property: "og:url", content: "/over-ons" },
     ],
-    links: [{ rel: "canonical", href: "/over-marcel" }],
+    links: [{ rel: "canonical", href: "/over-ons" }],
   }),
-  component: OverMarcel,
+  component: OverOns,
 });
 
-function OverMarcel() {
+function OverOns() {
   return (
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
         <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <SectionLabel number="01">Over Marcel</SectionLabel>
+            <SectionLabel number="01">Over ons</SectionLabel>
             <h1 className="heading-rule mt-6 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
               dr.ing. Marcel Noordhuis
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-soft">
-              Marcel Noordhuis is gepromoveerd op ketensamenwerking in bouw en
-              vastgoed en geldt in Nederland als een gezaghebbende specialist
-              op dit terrein. Hij combineert wetenschappelijke diepgang met
-              jarenlange praktijkervaring in complexe samenwerkingsverbanden.
+              Marcel Noordhuis is gepromoveerd op ketensamenwerking in bouw en vastgoed en geldt in
+              Nederland als een gezaghebbende specialist op dit terrein. Hij combineert
+              wetenschappelijke diepgang met jarenlange praktijkervaring in complexe
+              samenwerkingsverbanden.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-soft">
-              Hij adviseert en begeleidt corporaties, gemeenten, bouwbedrijven,
-              installateurs, onderhouds- en vastgoedorganisaties bij het
-              inrichten, meten en doorontwikkelen van ketensamenwerking. Van
-              strategie en governance tot uitvoering, ketenregie en
+              Hij adviseert en begeleidt corporaties, gemeenten, bouwbedrijven, installateurs,
+              onderhouds- en vastgoedorganisaties bij het inrichten, meten en doorontwikkelen van
+              ketensamenwerking. Van strategie en governance tot uitvoering, ketenregie en
               prestatiesturing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -94,7 +109,9 @@ function OverMarcel() {
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-navy/5 text-navy">
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-navy-deep">{p.title}</h3>
+                  <h3 className="mt-5 font-display text-lg font-semibold text-navy-deep">
+                    {p.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-soft">{p.body}</p>
                 </li>
               );

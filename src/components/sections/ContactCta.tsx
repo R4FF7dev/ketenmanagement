@@ -21,9 +21,8 @@ export function ContactCta() {
             Wilt u weten waar uw ketensamenwerking beter kan?
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-            Plan een kennismaking met Marcel Noordhuis en ontdek hoe analyse,
-            structuur en ketenregie kunnen bijdragen aan betere samenwerking
-            en betere projectresultaten.
+            Plan een kennismaking met ons en ontdek hoe analyse, structuur en ketenregie kunnen
+            bijdragen aan betere samenwerking en betere projectresultaten.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
@@ -47,7 +46,7 @@ export function ContactCta() {
               className="inline-flex items-center gap-2 rounded-md border border-white/25 px-5 py-3 text-sm font-semibold text-white hover:border-white"
             >
               <Linkedin className="h-4 w-4" aria-hidden />
-              Volg Marcel op LinkedIn
+              Volg ons op LinkedIn
             </a>
           </div>
         </div>
