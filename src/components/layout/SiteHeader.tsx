@@ -22,13 +22,13 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex" aria-label="Hoofdnavigatie">
+        <nav className="hidden xl:flex" aria-label="Hoofdnavigatie">
           <ul className="flex items-center gap-7">
             {NAV.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="text-sm font-medium text-ink/80 transition-colors hover:text-navy"
+                  className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-navy"
                   activeProps={{ className: "text-navy" }}
                   activeOptions={{ exact: item.to === "/" }}
                 >
@@ -39,11 +39,11 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           <LinkedInButton variant="icon" label="LinkedIn" />
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-orange px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange/90"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-orange px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange/90"
           >
             Plan een kennismaking
             <ArrowRight className="h-4 w-4" aria-hidden />
@@ -54,19 +54,14 @@ export function SiteHeader() {
           type="button"
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           aria-expanded={open}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      <div
-        className={cn(
-          "lg:hidden",
-          open ? "block border-t border-hairline" : "hidden",
-        )}
-      >
+      <div className={cn("xl:hidden", open ? "block border-t border-hairline" : "hidden")}>
         <nav className="container-x py-4" aria-label="Mobiele navigatie">
           <ul className="flex flex-col">
             {NAV.map((item) => (
@@ -96,7 +91,7 @@ export function SiteHeader() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-hairline px-4 py-3 text-sm font-medium text-navy"
             >
-              Volg Marcel op LinkedIn
+              Volg ons op LinkedIn
             </a>
           </div>
         </nav>
