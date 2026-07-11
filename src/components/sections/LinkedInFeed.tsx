@@ -35,7 +35,12 @@ export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) 
 
   return (
     <div>
-      <div className="widget-fade-white max-h-[420px] overflow-hidden">{widget}</div>
+      {/* Mobile stacks posts in a single column (taller per post), so it
+          needs much more height than desktop's multi-column grid to still
+          show 2-3 posts. */}
+      <div className="widget-fade-white max-h-[950px] overflow-hidden md:max-h-[420px]">
+        {widget}
+      </div>
       <Link
         to="/kennis"
         className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
