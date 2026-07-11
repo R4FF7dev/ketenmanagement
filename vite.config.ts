@@ -23,9 +23,10 @@ export default defineConfig(async ({ command }): Promise<UserConfig> => {
   ];
 
   // Nitro builds the SSR server output; only needed for production builds.
+  // node-server: a plain Node.js server, for our self-hosted (Coolify) deploy target.
   if (command === "build") {
     const { nitro } = await import("nitro/vite");
-    plugins.push(nitro({ defaultPreset: "cloudflare-module" }));
+    plugins.push(nitro({ defaultPreset: "node-server" }));
   }
 
   return {
