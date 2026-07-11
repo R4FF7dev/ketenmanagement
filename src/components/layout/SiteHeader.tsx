@@ -13,13 +13,13 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <TopBar />
-      <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20">
+      <div className="flex h-16 w-full items-center justify-between gap-4 px-5 md:h-20 md:px-8">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-6 w-auto" />
+          <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-8 w-auto" />
         </Link>
 
         <nav className="hidden xl:flex" aria-label="Hoofdnavigatie">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-5">
             {NAV.map((item) => (
               <li key={item.to}>
                 <Link
@@ -35,7 +35,7 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <LinkedInButton variant="icon" label="LinkedIn" />
           <Link
             to="/contact"
