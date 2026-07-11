@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap, CheckCircle2 } from "lucide-react";
-import heroImage from "@/assets/hero-urban.jpg";
+import heroImage from "@/assets/1739381206959.jpg";
 
 export function Hero() {
   return (
@@ -131,9 +131,9 @@ export function Hero() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-hairline bg-navy">
             <img
               src={heroImage}
-              alt="Stedelijke gebiedsontwikkeling en bouw bij avondlicht"
-              width={1600}
-              height={1200}
+              alt="dr.ing. Marcel Noordhuis"
+              width={390}
+              height={390}
               className="h-full w-full object-cover opacity-95"
             />
             <div
