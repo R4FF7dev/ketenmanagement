@@ -5,6 +5,7 @@ import { NAV, SITE } from "@/content/site";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -13,13 +14,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-hairline bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <TopBar />
       <div className="container-x flex h-16 items-center justify-between gap-6 md:h-20">
-        <Link to="/" className="flex flex-col leading-tight" onClick={() => setOpen(false)}>
-          <span className="font-display text-base font-semibold text-navy-deep md:text-lg">
-            Ketenmanagement
-          </span>
-          <span className="text-[11px] uppercase tracking-[0.18em] text-slate-soft">
-            Interim &amp; Advies
-          </span>
+        <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
+          <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-6 w-auto" />
         </Link>
 
         <nav className="hidden xl:flex" aria-label="Hoofdnavigatie">
