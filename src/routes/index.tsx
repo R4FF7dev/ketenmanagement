@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { TopBanner } from "@/components/sections/TopBanner";
 import { Hero } from "@/components/sections/Hero";
 import { AuthorityPillars } from "@/components/sections/AuthorityPillars";
 import {
@@ -37,6 +38,7 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <SiteShell>
+      <TopBanner />
       <Hero />
       <AuthorityPillars />
       <ServicesGrid />

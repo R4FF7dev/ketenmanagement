@@ -162,6 +162,40 @@
   }
 }
 
+@property --shine-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes shine-rotate {
+  to {
+    --shine-angle: 360deg;
+  }
+}
+
+/* A thin border with a bright glint that continuously sweeps around it,
+   like light catching the edge of glass — not an outer glow. */
+@utility shine-border-orange {
+  border: 2.5px solid transparent;
+  background:
+    linear-gradient(var(--color-navy), var(--color-navy)) padding-box,
+    conic-gradient(
+        from var(--shine-angle),
+        color-mix(in oklab, var(--color-orange) 45%, transparent) 0deg,
+        var(--color-orange) 8deg,
+        color-mix(in oklab, var(--color-orange) 45%, transparent) 16deg,
+        color-mix(in oklab, var(--color-orange) 45%, transparent) 360deg
+      )
+      border-box;
+  animation: shine-rotate 3.5s linear infinite;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    background: var(--color-navy);
+    border-color: color-mix(in oklab, var(--color-orange) 40%, transparent);
+  }
+}
+
 @keyframes blueprint-drift {
   0% {
     background-position: 0px 0px;

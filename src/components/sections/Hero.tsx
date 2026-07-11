@@ -4,17 +4,17 @@ import heroImage from "@/assets/1739381206959.jpg";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-surface">
-      <div
-        className="ambient-glow-orange absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full"
-        aria-hidden
-      />
-      <div
-        className="ambient-glow-navy absolute -bottom-40 -left-20 h-[480px] w-[480px] rounded-full"
-        aria-hidden
-      />
-      <div className="blueprint-bg blueprint-drift absolute inset-0 opacity-50" aria-hidden />
+    <section className="relative flow-root bg-surface">
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
+        <div
+          className="ambient-glow-orange absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full"
+          aria-hidden
+        />
+        <div
+          className="ambient-glow-navy absolute -bottom-40 -left-20 h-[480px] w-[480px] rounded-full"
+          aria-hidden
+        />
+        <div className="blueprint-bg blueprint-drift absolute inset-0 opacity-50" aria-hidden />
         <div
           className="zip-line-h zip-anim-right"
           style={
@@ -75,13 +75,8 @@ export function Hero() {
         />
       </div>
       <div className="container-x relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-10 lg:py-32">
-        <div className="lg:col-span-7">
-          <div className="section-label">
-            <span>Ketensamenwerking</span>
-            <span className="h-px w-6 bg-orange/60" aria-hidden />
-            <span>Bouw · Vastgoed · Onderhoud</span>
-          </div>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-navy-deep md:text-5xl lg:text-6xl">
+        <div className="-mt-16 md:-mt-24 lg:col-span-7 lg:-mt-32">
+          <h1 className="font-display text-4xl font-semibold leading-[1.05] text-navy-deep md:text-5xl lg:text-6xl">
             <span className="text-breathing-gradient">Ketensamenwerking</span> van analyse naar
             succesvolle implementatie.
           </h1>
@@ -127,14 +122,14 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="relative lg:col-span-5">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-hairline bg-navy">
+        <div className="relative -mt-32 md:-mt-44 lg:col-span-5 lg:-mt-56">
+          <div className="shine-border-orange group relative aspect-[4/5] overflow-hidden rounded-lg">
             <img
               src={heroImage}
               alt="dr.ing. Marcel Noordhuis"
               width={390}
               height={390}
-              className="h-full w-full object-cover opacity-95"
+              className="h-full w-full object-cover opacity-95 transition-transform duration-500 ease-out group-hover:rotate-1 group-hover:scale-105"
             />
             <div
               className="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent"
@@ -144,10 +139,12 @@ export function Hero() {
               <div className="flex items-start gap-3">
                 <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                 <div>
-                  <div className="text-sm font-semibold text-white">dr.ing. Marcel Noordhuis</div>
+                  <div className="text-sm font-semibold text-white">
+                    Ketenmanagement Interim &amp; Advies
+                  </div>
                   <p className="mt-1 text-xs leading-relaxed text-white/75">
-                    Gepromoveerd op ketensamenwerking. Onafhankelijk specialist voor corporaties,
-                    gemeenten, bouwers en installateurs.
+                    Onafhankelijk team met wetenschappelijke diepgang. Wij ondersteunen corporaties,
+                    gemeenten, bouwers en installateurs bij ketensamenwerking.
                   </p>
                   <div className="mt-3 flex items-center gap-1.5 text-[11px] text-white/70">
                     <CheckCircle2 className="h-3.5 w-3.5 text-orange" aria-hidden />
