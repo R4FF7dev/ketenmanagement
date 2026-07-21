@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NAV, SITE } from "@/content/site";
-import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
@@ -13,12 +12,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <TopBar />
-      <div className="flex h-16 w-full items-center justify-between gap-4 px-5 md:h-20 md:px-8">
+      <div className="flex h-20 w-full items-center justify-between gap-4 px-5 md:h-24 md:px-8">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-8 w-auto" />
+          <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-12 w-auto" />
         </Link>
 
-        <nav className="hidden xl:flex" aria-label="Hoofdnavigatie">
+        <nav className="hidden 2xl:flex" aria-label="Hoofdnavigatie">
           <ul className="flex items-center gap-5">
             {NAV.map((item) => (
               <li key={item.to}>
@@ -26,7 +25,6 @@ export function SiteHeader() {
                   to={item.to}
                   className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-navy"
                   activeProps={{ className: "text-navy" }}
-                  activeOptions={{ exact: item.to === "/" }}
                 >
                   {item.label}
                 </Link>
@@ -35,29 +33,18 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-2 xl:flex">
-          <LinkedInButton variant="icon" label="LinkedIn" />
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 whitespace-nowrap rounded-md bg-orange px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange/90"
-          >
-            Plan een kennismaking
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
-        </div>
-
         <button
           type="button"
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           aria-expanded={open}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy 2xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      <div className={cn("xl:hidden", open ? "block border-t border-hairline" : "hidden")}>
+      <div className={cn("2xl:hidden", open ? "block border-t border-hairline" : "hidden")}>
         <nav className="container-x py-4" aria-label="Mobiele navigatie">
           <ul className="flex flex-col">
             {NAV.map((item) => (
