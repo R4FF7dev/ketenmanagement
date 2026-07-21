@@ -4,7 +4,31 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { ContactCta } from "@/components/sections/ContactCta";
 import abstractImage from "@/assets/abstract-blueprint.jpg";
+import marionImage from "@/assets/Marion.jpg";
+import marcelImage from "@/assets/Marcel.jpg";
+import egbertImage from "@/assets/Egbert.jpg";
 import { GraduationCap, Microscope, Users, Target, ArrowRight } from "lucide-react";
+
+const team = [
+  {
+    name: "Marion Muller",
+    role: "Coach & trainer voor groei en verandering",
+    image: marionImage,
+    bio: "Marion is gespecialiseerd in de zachte kant van ketensamenwerking: gedrag, vertrouwen en communicatie. Zij begeleidt teams en professionals bij het herkennen en versterken van hun onderlinge samenwerking. Samen ontwikkelden wij de 'Kr8 van Zacht'-meting.",
+  },
+  {
+    name: "dr.ing. Marcel Noordhuis",
+    role: "Interim I Advies I Kwartiermaker",
+    image: marcelImage,
+    bio: "Marcel is gepromoveerd op ketensamenwerking in bouw en vastgoed en geldt als gezaghebbend specialist op dit vakgebied. Hij combineert wetenschappelijke diepgang met jarenlange praktijkervaring als interim ketenregisseur en adviseur.",
+  },
+  {
+    name: "Egbert Kunst",
+    role: "Expert RGS (Resultaatgericht Samenwerken)",
+    image: egbertImage,
+    bio: "Egbert is specialist in de theorie en praktijk van RGS. Als trainer, coach en interim ketenregisseur helpt hij organisaties de principes van RGS en ketensamenwerking te implementeren richting meetbare resultaten.",
+  },
+] as const;
 
 const pillars = [
   {
@@ -51,9 +75,46 @@ function OverOns() {
   return (
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
+        <div className="container-x py-20 md:py-24">
+          <SectionLabel number="01">Ons team</SectionLabel>
+          <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
+            Samen sterker in ketensamenwerking
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-soft">
+            Voor specifieke thema&rsquo;s werken wij samen met specialisten die de aanpak van
+            ketensamenwerking en RGS verder verdiepen.
+          </p>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {team.map((member) => (
+              <div
+                key={member.name}
+                className="rounded-lg border border-hairline bg-white p-6 text-center"
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  width={200}
+                  height={200}
+                  loading="lazy"
+                  className="mx-auto h-56 w-56 rounded-full object-cover object-top"
+                />
+                <h3 className="mt-5 font-display text-lg font-semibold text-navy-deep">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.1em] text-orange">
+                  {member.role}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-soft">{member.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-hairline bg-surface">
         <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <SectionLabel number="01">Over ons</SectionLabel>
+            <SectionLabel number="02">Over ons</SectionLabel>
             <h1 className="heading-rule mt-6 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
               dr.ing. Marcel Noordhuis
             </h1>
@@ -97,7 +158,7 @@ function OverOns() {
 
       <section className="bg-white">
         <div className="container-x py-20 md:py-24">
-          <SectionLabel number="02">Aanpak &amp; expertise</SectionLabel>
+          <SectionLabel number="03">Aanpak &amp; expertise</SectionLabel>
           <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
             Wetenschap én praktijk
           </h2>
