@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap, CheckCircle2 } from "lucide-react";
-import heroImage from "@/assets/images.jpg";
+import heroImage from "@/assets/1739381206959.jpg";
 
 export function Hero() {
   return (
@@ -80,10 +80,45 @@ export function Hero() {
             <span className="text-breathing-gradient">Ketensamenwerking</span> van analyse naar
             succesvolle implementatie.
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-slate-soft">
-            Wij helpen corporaties, gemeenten, bouwers, installateurs en vastgoedorganisaties om
-            complexe samenwerkingen meetbaar, bestuurbaar en resultaatgericht te maken.
-          </p>
+          <div className="mt-7 max-w-2xl space-y-4 text-lg leading-relaxed text-slate-soft">
+            <p className="font-display text-xl font-semibold text-navy-deep">
+              Welkom op onze website.
+            </p>
+            <p>
+              Wij ondersteunen corporaties, gemeenten, bouwers en installateurs op interim of
+              projectbasis bij de implementatie van Ketensamenwerking/RGS zowel binnen de eigen
+              organisatie alsook in samenwerking met ketenpartners. Het implementeren van
+              Ketensamenwerking en RGS is geen sinecure. Het vergt kennis, inzicht,
+              doorzettingsvermogen, koersvastheid en een plan. Een plan dat wij graag samen met u en
+              uw team ontwikkelen en implementeren tot dat de beoogde resultaten worden bereikt. Hoe
+              we dat doen en welke (deel)diensten we hierbij kunnen leveren leggen wij u op de rest
+              van deze website graag uit.
+            </p>
+            <p>
+              Ik zou het mooi vinden als ik of mijn collega&rsquo;s u hierbij van dienst mogen zijn,
+            </p>
+            <p>
+              Groet,
+              <br />
+              dr.ing. Marcel Noordhuis
+            </p>
+            <p className="text-base text-slate-soft/80">
+              Interim I Advies I Kwartiermaker
+              <br />
+              email:{" "}
+              <a
+                href="mailto:m.noordhuis@ketenmanagement.com"
+                className="underline hover:text-navy"
+              >
+                m.noordhuis@ketenmanagement.com
+              </a>
+              <br />
+              mobiel:{" "}
+              <a href="tel:0614460880" className="underline hover:text-navy">
+                06 - 144 60 880
+              </a>
+            </p>
+          </div>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link
               to="/contact"
@@ -105,30 +140,15 @@ export function Hero() {
               Lees kennisartikelen
             </Link>
           </div>
-
-          <dl className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-hairline pt-8">
-            <div>
-              <dt className="text-xs uppercase tracking-[0.18em] text-slate-soft">Promotie</dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-navy-deep">dr.ing.</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-[0.18em] text-slate-soft">Sectoren</dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-navy-deep">7+</dd>
-            </div>
-            <div>
-              <dt className="text-xs uppercase tracking-[0.18em] text-slate-soft">Focus</dt>
-              <dd className="mt-1 font-display text-lg font-semibold text-navy-deep">Ketenregie</dd>
-            </div>
-          </dl>
         </div>
 
         <div className="relative -mt-32 md:-mt-44 lg:col-span-5 lg:-mt-56">
           <div className="shine-border-orange group relative aspect-[4/5] overflow-hidden rounded-lg">
             <img
               src={heroImage}
-              alt="Moderne kantoortorens in een Nederlandse stad"
-              width={393}
-              height={508}
+              alt="dr.ing. Marcel Noordhuis"
+              width={390}
+              height={390}
               className="h-full w-full object-cover opacity-95 transition-transform duration-500 ease-out group-hover:rotate-1 group-hover:scale-105"
             />
             <div
