@@ -35,9 +35,9 @@ function DienstenPage() {
             Diensten voor betere ketensamenwerking
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
-            Van analyse en strategie tot implementatie, ketenregie en dashboarding. Wij ondersteunen
-            organisaties bij het professioneel inrichten, meten en verbeteren van samenwerkingen in
-            complexe ketens.
+            Van analyse tot advies, van implementatieplan tot realisatie daarvan, wij ondersteunen
+            organisaties bij het professioneel inrichten, aanjagen, doorlichten van samenwerkingen
+            in complexe ketens. Onderstaand een indruk van de (deel)diensten die wij kunnen leveren.
           </p>
         </div>
       </section>

@@ -15,9 +15,9 @@ export function ServicesGrid() {
             </h2>
           </div>
           <p className="text-base leading-relaxed text-slate-soft md:col-span-7 md:pt-12">
-            Van analyse en strategie tot implementatie, ketenregie en dashboarding. Wij ondersteunen
-            organisaties bij het professioneel inrichten, meten en verbeteren van samenwerkingen in
-            complexe ketens.
+            Van analyse tot advies, van implementatieplan tot realisatie daarvan, wij ondersteunen
+            organisaties bij het professioneel inrichten, aanjagen, doorlichten van samenwerkingen
+            in complexe ketens. Onderstaand een indruk van de (deel)diensten die wij kunnen leveren.
           </p>
         </div>
 
@@ -40,14 +40,26 @@ export function ServicesGrid() {
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-soft">{s.short}</p>
-                <Link
-                  to="/diensten"
-                  hash={s.slug}
-                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
-                >
-                  Lees meer
-                  <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
+                {s.link ? (
+                  <a
+                    href={s.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
+                  >
+                    Lees meer
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </a>
+                ) : (
+                  <Link
+                    to="/diensten"
+                    hash={s.slug}
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
+                  >
+                    Lees meer
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </Link>
+                )}
               </li>
             );
           })}

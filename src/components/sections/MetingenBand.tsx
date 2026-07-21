@@ -13,15 +13,26 @@ export function MetingenBand() {
             <div className="section-label text-orange">
               <span className="text-white/40">03</span>
               <span className="h-px w-6 bg-orange/70" aria-hidden />
-              <span>Ketenmetingen</span>
+              <span>Maturity Metingen</span>
             </div>
             <h2 className="mt-5 font-display text-3xl font-semibold text-white md:text-4xl">
-              Maak ketensamenwerking meetbaar
+              Voer cyclische Maturity Meting uit om te bepalen of u op de juiste wijze invulling
+              geeft aan de principes van Ketensamenwerking/RGS
             </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
-              Samenwerking wordt pas bestuurbaar wanneer ze zichtbaar en meetbaar is. Met bewezen
-              metingen brengen wij de volwassenheid, kwaliteit en ontwikkeling van uw keten in
-              kaart.
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70">
+              U plukt pas de vruchten van de implementatie van in- of externe ketensamenwerking /
+              RGS als u de onderliggende principes van ketensamenwerking of RGS ook daadwerkelijk
+              geïmplementeerd hebt. Daar waar ketensamenwerking meer gaat over het stroomlijnen van
+              de samenwerking binnen en tussen organisaties gaat de toepassing van RGS primair over
+              het maken van slimme keuzes bij het configureren van de bouwopgave zelf, zodat
+              daardoor een optimale TCO ontstaat. De mate waarin ketens volgens de principes van in-
+              en externe ketensamenwerking zijn ingericht alsook de mate waarin invulling wordt
+              gegeven aan de principes van RGS, is te meten. Door ook nog te kijken naar de mate
+              waarin teams vanuit de zachte kant slim zijn ingericht, kunnen wij partijen voorzien
+              van een schat aan inzichten die gebruikt kunnen worden om bestaande
+              samenwerkingsverbanden slim te laten doorstarten of richting te geven bij de start van
+              nieuwe samenwerkingsverbanden. Dit om er voor te zorgen dat er maximaal waarde wordt
+              gerealiseerd in ambitieuze samenwerkingsverbanden.
             </p>
             <Link
               to="/ketenmetingen"

@@ -14,13 +14,13 @@ import { ArrowUpRight, BookOpen } from "lucide-react";
 export const Route = createFileRoute("/kennis")({
   head: () => ({
     meta: [
-      { title: "Kennis & Publicaties — Ketensamenwerking" },
+      { title: "Publicaties — Ketensamenwerking" },
       {
         name: "description",
         content:
           "Artikelen, publicaties en inzichten over ketensamenwerking, samenwerking in de bouw en implementatie van ketenprogramma's.",
       },
-      { property: "og:title", content: "Kennis & Publicaties" },
+      { property: "og:title", content: "Publicaties" },
       { property: "og:description", content: "Inzichten over ketensamenwerking." },
       { property: "og:url", content: "/kennis" },
     ],
@@ -35,7 +35,7 @@ function KennisPage() {
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
         <div className="container-x py-16 md:py-24">
-          <SectionLabel number="01">Kennis &amp; Publicaties</SectionLabel>
+          <SectionLabel number="01">Publicaties</SectionLabel>
           <h1 className="heading-rule mt-5 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
             Inzichten over ketensamenwerking
           </h1>

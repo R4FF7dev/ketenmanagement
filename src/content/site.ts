@@ -28,56 +28,62 @@ export const SITE = {
 export const SOCIABLEKIT_LINKEDIN_WIDGET_ID: string = "25695335";
 
 export const NAV = [
-  { to: "/", label: "Home" },
   { to: "/over-ons", label: "Over ons" },
   { to: "/diensten", label: "Diensten" },
-  { to: "/ketenmetingen", label: "Ketenmetingen" },
-  { to: "/kennis", label: "Kennis & Publicaties" },
+  { to: "/ketenmetingen", label: "Maturity Metingen" },
+  { to: "/kennis", label: "Publicaties" },
   { to: "/opdrachtgevers", label: "Opdrachtgevers" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
 export const SERVICES = [
   {
-    slug: "ketenanalyse",
+    slug: "inspiratiesessie",
     icon: Network,
-    title: "Ketenanalyse & maturity metingen",
+    title: "Inspiratiesessie RGS en Ketensamenwerking",
     short:
-      "Analyse van de huidige samenwerking, volwassenheid, knelpunten en verbeterpotentie binnen de keten.",
+      "Overzicht van de ins en outs van RGS en ketensamenwerking, met een discussie over de waarde en consequenties van de toepassing ervan. We staan uitgebreid stil bij de onderliggende bouwstenen en hoe deze succesvol te implementeren zijn, zowel binnen de eigen organisatie als tussen organisaties.",
+    link: undefined,
   },
   {
-    slug: "strategie",
+    slug: "workshops",
     icon: Compass,
-    title: "Strategie & inrichting van ketensamenwerking",
+    title: "Workshops RGS en ketensamenwerking",
     short:
-      "Ontwikkeling van visie, governance, KPI's, samenwerkingsafspraken en besturingsmodellen.",
-  },
-  {
-    slug: "partnerselectie",
-    icon: Handshake,
-    title: "Partnerselectie & samenwerkingsmodellen",
-    short:
-      "Ondersteuning bij selectie van strategische partners en beoordeling van samenwerking, fit en toekomstbestendigheid.",
-  },
-  {
-    slug: "ketenregie",
-    icon: Briefcase,
-    title: "Ketenregie & interim management",
-    short:
-      "Onafhankelijke begeleiding en regie bij complexe samenwerkingsprogramma's en verandertrajecten.",
+      "Een serie werksessies om vast te stellen of en hoe RGS en ketensamenwerking bijdragen aan uw strategische doelstellingen, met onderwerpen als visie op ketensamenwerking en RGS, sturen op prestaties, KPI's, TCO-doelen, procesgericht werken, gedragsregels en partnerselectie. De workshops resulteren in een gevulde strategiekaart.",
+    link: undefined,
   },
   {
     slug: "dashboarding",
-    icon: GaugeCircle,
-    title: "Dashboarding & prestatiesturing",
-    short: "Meetbaar maken van samenwerking, prestaties, doelen, voortgang en verbeterpunten.",
+    icon: Handshake,
+    title: "Dashboarding",
+    short:
+      "Wij helpen zichtbaar en meetbaar maken dat ketensamenwerking daadwerkelijk betere prestaties oplevert op tijd, geld, kwaliteit, aantallen en duurzaamheid. Samen met onze PowerBI-partner realiseren wij een dashboarding-omgeving waarmee u en uw partners de prestaties in de samenwerking continu kunnen volgen.",
+    link: undefined,
   },
   {
-    slug: "sessies",
-    icon: Mic,
-    title: "Inspiratiesessies, lezingen & platforms",
+    slug: "kmm",
+    icon: Briefcase,
+    title: "Interne KetenMaturityMeting (KMM)",
     short:
-      "Kennisdeling, directiesessies, workshops en begeleiding van executive en high potential platforms.",
+      "Een online meetinstrument waarmee uw eigen medewerkers vaststellen hoe volwassen de organisatie is op het gebied van ketensamenwerking, met verbetersuggesties vanuit de organisatie zelf. We beoordelen strategie & beleid, organisatie & processen, mindset & gedrag, monitoren & verbetering, informatie & communicatie en leren & innoveren.",
+    link: "https://a3ff2dc9-242d-41fd-bca8-3764dd3b3ada.usrfiles.com/ugd/a3ff2d_68127613da544c9cb7f9bafed33d3b1d.pdf",
+  },
+  {
+    slug: "ksi",
+    icon: GaugeCircle,
+    title: "Externe Ketenmaturity Meting (KSI)",
+    short:
+      "Brengt in kaart hoe volwassen de samenwerking tussen partners in een keten is, beoordeeld vanuit zes invalshoeken: langetermijnsamenwerking en gezamenlijke doelen, vroege betrokkenheid van partners, informatiedeling, prestatiemeting, gezamenlijk verbeteren en een gezamenlijk verdienmodel. Zo worden verbeterpunten en vervolgstappen concreet.",
+    link: "https://ketensamenwerking.blog/wp-content/uploads/2025/08/KSI-BROCHURE-2025-meten-ketenrijpheid-tussen-organisaties-12-08-2025.pdf",
+  },
+  {
+    slug: "rmm",
+    icon: Mic,
+    title: "RGS Maturity Meting (RMM)",
+    short:
+      "Stelt vast in welke mate partijen daadwerkelijk invulling geven aan de onderliggende principes van RGS rondom portefeuille- en assetmanagement, property management, uitvoering en beheer. Aan de hand van circa 25-30 stellingen brengen we in kaart welke aspecten wel of niet worden ingevuld en waar het grootste verbeterpotentieel zit.",
+    link: undefined,
   },
 ] as const;
 
@@ -101,6 +107,11 @@ export const METINGEN = [
     code: "EVA",
     title: "Evaluatie ketensamenwerkingsprogramma's",
     body: "Onafhankelijke evaluatie van lopende of afgeronde programma's met concrete verbeteradviezen.",
+  },
+  {
+    code: "RMM",
+    title: "RGS Maturity Meting (RMM)",
+    body: "Stelt vast in welke mate partijen daadwerkelijk invulling geven aan de onderliggende principes van RGS, aan de hand van stellingen rondom portefeuille- en assetmanagement, property management, uitvoering en beheer. Op basis van circa 25-30 stellingen brengen we in kaart welke aspecten wel of niet worden ingevuld en waar het grootste verbeterpotentieel zit.",
   },
 ] as const;
 

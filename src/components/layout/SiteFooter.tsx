@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Mail, Globe, BookOpen } from "lucide-react";
-import { SITE, NAV } from "@/content/site";
+import { SITE, NAV, SERVICES } from "@/content/site";
 
 export function SiteFooter() {
   return (
@@ -29,17 +29,10 @@ export function SiteFooter() {
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-white">Diensten</h3>
           <ul className="mt-5 space-y-3 text-sm">
-            {[
-              "Ketenanalyse",
-              "Strategie & inrichting",
-              "Partnerselectie",
-              "Ketenregie & interim",
-              "Dashboarding",
-              "Inspiratiesessies",
-            ].map((s) => (
-              <li key={s}>
-                <Link to="/diensten" className="text-white/65 hover:text-white">
-                  {s}
+            {SERVICES.map((s) => (
+              <li key={s.slug}>
+                <Link to="/diensten" hash={s.slug} className="text-white/65 hover:text-white">
+                  {s.title}
                 </Link>
               </li>
             ))}
