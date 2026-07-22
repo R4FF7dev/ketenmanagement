@@ -4,7 +4,7 @@ import heroImage from "@/assets/1739381206959.jpg";
 
 export function Hero() {
   return (
-    <section className="relative flow-root bg-surface">
+    <section className="relative bg-surface">
       <div className="absolute inset-0 overflow-hidden" aria-hidden>
         <div
           className="ambient-glow-orange absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full"
@@ -75,7 +75,7 @@ export function Hero() {
         />
       </div>
       <div className="container-x relative grid gap-12 py-16 md:py-24 lg:grid-cols-12 lg:gap-10 lg:py-32">
-        <div className="-mt-16 md:-mt-24 lg:col-span-7 lg:-mt-32">
+        <div className="lg:col-span-7">
           <h1 className="font-display text-4xl font-semibold leading-[1.05] text-navy-deep md:text-5xl lg:text-6xl">
             <span className="text-breathing-gradient">Ketensamenwerking</span> van analyse naar
             succesvolle implementatie.
@@ -142,7 +142,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative -mt-32 md:-mt-44 lg:col-span-5 lg:-mt-56">
+        <div className="relative lg:col-span-5">
           <div className="shine-border-orange group relative aspect-[4/5] overflow-hidden rounded-lg">
             <img
               src={heroImage}
