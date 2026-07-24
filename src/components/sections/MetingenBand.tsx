@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { METINGEN } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
 export function MetingenBand() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <section className="relative overflow-hidden bg-navy-deep text-white">
       <div className="blueprint-bg absolute inset-0 opacity-30" aria-hidden />
@@ -25,15 +28,32 @@ export function MetingenBand() {
               geïmplementeerd hebt. Daar waar ketensamenwerking meer gaat over het stroomlijnen van
               de samenwerking binnen en tussen organisaties gaat de toepassing van RGS primair over
               het maken van slimme keuzes bij het configureren van de bouwopgave zelf, zodat
-              daardoor een optimale TCO ontstaat. De mate waarin ketens volgens de principes van in-
-              en externe ketensamenwerking zijn ingericht alsook de mate waarin invulling wordt
-              gegeven aan de principes van RGS, is te meten. Door ook nog te kijken naar de mate
-              waarin teams vanuit de zachte kant slim zijn ingericht, kunnen wij partijen voorzien
-              van een schat aan inzichten die gebruikt kunnen worden om bestaande
-              samenwerkingsverbanden slim te laten doorstarten of richting te geven bij de start van
-              nieuwe samenwerkingsverbanden. Dit om er voor te zorgen dat er maximaal waarde wordt
-              gerealiseerd in ambitieuze samenwerkingsverbanden.
+              daardoor een optimale TCO ontstaat.
             </p>
+            {expanded && (
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+                De mate waarin ketens volgens de principes van in- en externe ketensamenwerking zijn
+                ingericht alsook de mate waarin invulling wordt gegeven aan de principes van RGS, is
+                te meten. Door ook nog te kijken naar de mate waarin teams vanuit de zachte kant
+                slim zijn ingericht, kunnen wij partijen voorzien van een schat aan inzichten die
+                gebruikt kunnen worden om bestaande samenwerkingsverbanden slim te laten doorstarten
+                of richting te geven bij de start van nieuwe samenwerkingsverbanden. Dit om er voor
+                te zorgen dat er maximaal waarde wordt gerealiseerd in ambitieuze
+                samenwerkingsverbanden.
+              </p>
+            )}
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-white hover:text-orange"
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+                aria-hidden
+              />
+              <span className="sr-only">{expanded ? "Lees minder" : "Lees meer"}</span>
+            </button>
             <Link
               to="/ketenmetingen"
               className="mt-8 inline-flex items-center gap-2 rounded-md bg-orange px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange/90"
@@ -43,7 +63,7 @@ export function MetingenBand() {
             </Link>
           </div>
 
-          <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <ul className="grid gap-4 lg:col-span-7">
             {METINGEN.map((m) => (
               <li
                 key={m.code}

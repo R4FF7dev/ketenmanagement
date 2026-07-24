@@ -1,4 +1,4 @@
-import { SECTORS } from "@/content/site";
+import { SECTORS, CLIENT_LOGOS } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
 export function SectorsGrid() {
@@ -35,12 +35,18 @@ export function SectorsGrid() {
           </ul>
         </div>
 
-        <div className="mt-12 rounded-lg border border-dashed border-hairline bg-white p-6">
-          <div className="text-xs uppercase tracking-[0.18em] text-slate-soft">Opdrachtgevers</div>
-          <p className="mt-2 text-sm text-slate-soft">
-            Wij werken voor toonaangevende corporaties, gemeenten, bouwers en installateurs. Logo's
-            worden uitsluitend met toestemming van opdrachtgevers getoond.
-          </p>
+        <div className="mt-12 overflow-hidden border-x border-hairline bg-white py-10 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="animate-marquee flex w-max items-center gap-20 hover:![animation-duration:240s]">
+            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
+              <img
+                key={`${logo.name}-${i}`}
+                src={logo.src}
+                alt={logo.name}
+                loading="lazy"
+                className="h-16 w-auto shrink-0 object-contain opacity-50 transition hover:opacity-100"
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/section-label";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { SITE } from "@/content/site";
-import { Mail, Globe, BookOpen, MapPin } from "lucide-react";
+import { Mail, Phone, Globe, BookOpen, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -48,14 +48,10 @@ function ContactPage() {
 
           <aside className="lg:col-span-5">
             <div className="rounded-lg border border-hairline bg-surface p-8">
-              <h2 className="font-display text-xl font-semibold text-navy-deep">Contactgegevens</h2>
+              <h2 className="font-display text-xl font-semibold text-navy-deep">
+                Onze contactgegevens
+              </h2>
               <dl className="mt-6 space-y-5 text-sm">
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
-                    Naam
-                  </dt>
-                  <dd className="mt-1 text-navy-deep">{SITE.person}</dd>
-                </div>
                 <div>
                   <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
                     Bedrijf
@@ -72,6 +68,19 @@ function ContactPage() {
                       href={`mailto:${SITE.email}`}
                     >
                       <Mail className="h-4 w-4" aria-hidden /> {SITE.email}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-soft">
+                    Telefoon
+                  </dt>
+                  <dd className="mt-1">
+                    <a
+                      className="inline-flex items-center gap-2 text-navy hover:text-orange"
+                      href="tel:0614460880"
+                    >
+                      <Phone className="h-4 w-4" aria-hidden /> 06 - 144 60 880
                     </a>
                   </dd>
                 </div>

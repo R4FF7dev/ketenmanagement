@@ -1,5 +1,3 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
@@ -21,7 +19,7 @@ export function ServicesGrid() {
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.map((s) => {
             const Icon = s.icon;
             return (
@@ -36,30 +34,10 @@ export function ServicesGrid() {
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-navy/5 text-navy transition-colors group-hover:bg-orange/10 group-hover:text-orange">
                   <Icon className="h-5 w-5" aria-hidden />
                 </span>
-                <h3 className="mt-6 font-display text-lg font-semibold text-navy-deep">
+                <h3 className="mt-6 min-h-14 font-display text-lg font-semibold text-navy-deep">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-soft">{s.short}</p>
-                {s.link ? (
-                  <a
-                    href={s.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
-                  >
-                    Lees meer
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </a>
-                ) : (
-                  <Link
-                    to="/diensten"
-                    hash={s.slug}
-                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
-                  >
-                    Lees meer
-                    <ArrowRight className="h-4 w-4" aria-hidden />
-                  </Link>
-                )}
               </li>
             );
           })}

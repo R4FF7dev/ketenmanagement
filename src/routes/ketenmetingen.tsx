@@ -8,11 +8,11 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/ketenmetingen")({
   head: () => ({
     meta: [
-      { title: "Maturity Metingen — KMM, KSI, Kr8 van Zacht, RMM" },
+      { title: "Maturity Metingen — KMM, KSI, RMM" },
       {
         name: "description",
         content:
-          "Meet cyclisch of u op de juiste wijze invulling geeft aan de principes van ketensamenwerking en RGS, met de KetenMaturityMeting, KetenSamenwerkingsIndex, Kr8 van Zacht, RGS Maturity Meting en programmaevaluaties.",
+          "Meet cyclisch of u op de juiste wijze invulling geeft aan de principes van ketensamenwerking en RGS, met de interne en externe KetenMaturityMeting en de RGS Maturity Meting.",
       },
       { property: "og:title", content: "Maturity Metingen" },
       { property: "og:description", content: "Bewezen metingen voor ketensamenwerking." },

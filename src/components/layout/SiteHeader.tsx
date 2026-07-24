@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { NAV, SITE } from "@/content/site";
 import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo copy.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export function SiteHeader() {
           <img src={logo} alt="Ketenmanagement Interim & Advies" className="h-12 w-auto" />
         </Link>
 
-        <nav className="hidden 2xl:flex" aria-label="Hoofdnavigatie">
+        <nav className="hidden lg:flex" aria-label="Hoofdnavigatie">
           <ul className="flex items-center gap-5">
             {NAV.map((item) => (
               <li key={item.to}>
@@ -37,14 +37,14 @@ export function SiteHeader() {
           type="button"
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           aria-expanded={open}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy 2xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-hairline text-navy lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      <div className={cn("2xl:hidden", open ? "block border-t border-hairline" : "hidden")}>
+      <div className={cn("lg:hidden", open ? "block border-t border-hairline" : "hidden")}>
         <nav className="container-x py-4" aria-label="Mobiele navigatie">
           <ul className="flex flex-col">
             {NAV.map((item) => (

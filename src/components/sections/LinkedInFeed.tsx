@@ -1,5 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useEffect } from "react";
 import { SectionLabel } from "@/components/ui/section-label";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { SOCIABLEKIT_LINKEDIN_WIDGET_ID } from "@/content/site";
@@ -14,7 +13,33 @@ export const linkedInWidgetScriptSrc =
 export const isLinkedInWidgetConfigured =
   SOCIABLEKIT_LINKEDIN_WIDGET_ID !== "PLACEHOLDER_WIDGET_ID";
 
+// SociableKIT's widget.js scans the DOM once at execution time for elements
+// with WIDGET_CLASS and has no MutationObserver/re-init API. Loading it via
+// the router's head() scripts (dedup'd by src, injected once per document
+// lifetime) meant: (a) on cold loads the router's hydration-driven re-inject
+// races the widget div's readiness, and (b) client-side navigation between
+// pages that each mount a widget div never re-triggered a scan for the new
+// div, since the script tag from the previous page was already present. So
+// this loads a fresh <script> on every mount instead, deliberately skipping
+// any src-based dedup.
+function useLinkedInWidgetScript() {
+  useEffect(() => {
+    if (!isLinkedInWidgetConfigured) return;
+
+    const script = document.createElement("script");
+    script.src = linkedInWidgetScriptSrc;
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
+}
+
 export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) {
+  useLinkedInWidgetScript();
+
   if (!isLinkedInWidgetConfigured) {
     return (
       <div className="rounded-lg border border-dashed border-hairline bg-white p-10 text-center text-sm text-slate-soft">
@@ -41,13 +66,6 @@ export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) 
       <div className="widget-fade-white max-h-[1900px] overflow-hidden md:max-h-[820px]">
         {widget}
       </div>
-      <Link
-        to="/kennis"
-        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
-      >
-        Bekijk meer op LinkedIn
-        <ArrowRight className="h-4 w-4" aria-hidden />
-      </Link>
     </div>
   );
 }

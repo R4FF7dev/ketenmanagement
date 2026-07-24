@@ -252,154 +252,19 @@
   }
 }
 
-/* Fast "data" streaks that zip across the blueprint grid, each mostly idle
-   and only visible for a brief moment per cycle; varied durations/negative
-   delays per instance (set inline) keep them from ever looking synchronized. */
-@keyframes zip-right {
-  0%,
-  70% {
-    left: -8%;
-    opacity: 0;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
   }
-  74% {
-    opacity: 0.4;
-  }
-  84% {
-    left: 108%;
-    opacity: 0.4;
-  }
-  88%,
-  100% {
-    left: 108%;
-    opacity: 0;
+  to {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes zip-left {
-  0%,
-  70% {
-    left: 108%;
-    opacity: 0;
-  }
-  74% {
-    opacity: 0.4;
-  }
-  84% {
-    left: -8%;
-    opacity: 0.4;
-  }
-  88%,
-  100% {
-    left: -8%;
-    opacity: 0;
-  }
-}
-
-@keyframes zip-down {
-  0%,
-  70% {
-    top: -8%;
-    opacity: 0;
-  }
-  74% {
-    opacity: 0.4;
-  }
-  84% {
-    top: 108%;
-    opacity: 0.4;
-  }
-  88%,
-  100% {
-    top: 108%;
-    opacity: 0;
-  }
-}
-
-@keyframes zip-up {
-  0%,
-  70% {
-    top: 108%;
-    opacity: 0;
-  }
-  74% {
-    opacity: 0.4;
-  }
-  84% {
-    top: -8%;
-    opacity: 0.4;
-  }
-  88%,
-  100% {
-    top: -8%;
-    opacity: 0;
-  }
-}
-
-@utility zip-line-h {
-  position: absolute;
-  height: 1px;
-  width: 72px;
-  background: linear-gradient(to right, transparent, var(--zip-color, var(--color-orange)), transparent);
-  animation-duration: var(--zip-duration, 5s);
-  animation-delay: var(--zip-delay, 0s);
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+@utility animate-marquee {
+  animation: marquee 70s linear infinite;
   @media (prefers-reduced-motion: reduce) {
     animation: none;
-    opacity: 0;
   }
 }
 
-@utility zip-line-v {
-  position: absolute;
-  width: 1px;
-  height: 72px;
-  background: linear-gradient(to bottom, transparent, var(--zip-color, var(--color-orange)), transparent);
-  animation-duration: var(--zip-duration, 5s);
-  animation-delay: var(--zip-delay, 0s);
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    opacity: 0;
-  }
-}
-
-@utility zip-anim-right {
-  animation-name: zip-right;
-}
-@utility zip-anim-left {
-  animation-name: zip-left;
-}
-@utility zip-anim-down {
-  animation-name: zip-down;
-}
-@utility zip-anim-up {
-  animation-name: zip-up;
-}
-
-@keyframes breathing-gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-    opacity: 0.88;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 1;
-  }
-}
-
-@utility text-breathing-gradient {
-  background-image: linear-gradient(90deg, var(--color-ink) 0%, var(--color-orange) 50%, var(--color-ink) 100%);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: breathing-gradient 18s ease-in-out infinite;
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    color: var(--color-ink);
-    background-image: none;
-  }
-}

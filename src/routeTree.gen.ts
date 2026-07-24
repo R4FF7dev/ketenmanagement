@@ -16,6 +16,8 @@ import { Route as KennisRouteImport } from './routes/kennis'
 import { Route as DienstenRouteImport } from './routes/diensten'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KennisIndexRouteImport } from './routes/kennis.index'
+import { Route as KennisSlugRouteImport } from './routes/kennis.$slug'
 
 const OverOnsRoute = OverOnsRouteImport.update({
   id: '/over-ons',
@@ -52,34 +54,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KennisIndexRoute = KennisIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => KennisRoute,
+} as any)
+const KennisSlugRoute = KennisSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => KennisRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
-  '/kennis': typeof KennisRoute
+  '/kennis': typeof KennisRouteWithChildren
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
+  '/kennis/$slug': typeof KennisSlugRoute
+  '/kennis/': typeof KennisIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
-  '/kennis': typeof KennisRoute
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
+  '/kennis/$slug': typeof KennisSlugRoute
+  '/kennis': typeof KennisIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
-  '/kennis': typeof KennisRoute
+  '/kennis': typeof KennisRouteWithChildren
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
+  '/kennis/$slug': typeof KennisSlugRoute
+  '/kennis/': typeof KennisIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,15 +108,18 @@ export interface FileRouteTypes {
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
+    | '/kennis/$slug'
+    | '/kennis/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
     | '/diensten'
-    | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
+    | '/kennis/$slug'
+    | '/kennis'
   id:
     | '__root__'
     | '/'
@@ -109,13 +129,15 @@ export interface FileRouteTypes {
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
+    | '/kennis/$slug'
+    | '/kennis/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DienstenRoute: typeof DienstenRoute
-  KennisRoute: typeof KennisRoute
+  KennisRoute: typeof KennisRouteWithChildren
   KetenmetingenRoute: typeof KetenmetingenRoute
   OpdrachtgeversRoute: typeof OpdrachtgeversRoute
   OverOnsRoute: typeof OverOnsRoute
@@ -172,14 +194,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kennis/': {
+      id: '/kennis/'
+      path: '/'
+      fullPath: '/kennis/'
+      preLoaderRoute: typeof KennisIndexRouteImport
+      parentRoute: typeof KennisRoute
+    }
+    '/kennis/$slug': {
+      id: '/kennis/$slug'
+      path: '/$slug'
+      fullPath: '/kennis/$slug'
+      preLoaderRoute: typeof KennisSlugRouteImport
+      parentRoute: typeof KennisRoute
+    }
   }
 }
+
+interface KennisRouteChildren {
+  KennisSlugRoute: typeof KennisSlugRoute
+  KennisIndexRoute: typeof KennisIndexRoute
+}
+
+const KennisRouteChildren: KennisRouteChildren = {
+  KennisSlugRoute: KennisSlugRoute,
+  KennisIndexRoute: KennisIndexRoute,
+}
+
+const KennisRouteWithChildren =
+  KennisRoute._addFileChildren(KennisRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DienstenRoute: DienstenRoute,
-  KennisRoute: KennisRoute,
+  KennisRoute: KennisRouteWithChildren,
   KetenmetingenRoute: KetenmetingenRoute,
   OpdrachtgeversRoute: OpdrachtgeversRoute,
   OverOnsRoute: OverOnsRoute,

@@ -21,8 +21,12 @@ export function ContactCta() {
             Wilt u weten waar uw ketensamenwerking beter kan?
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-            Plan een kennismaking met ons en ontdek hoe analyse, structuur en ketenregie kunnen
-            bijdragen aan betere samenwerking en betere projectresultaten.
+            Plan een vrijblijvende kennismaking met ons in en ontdek hoe wij u kunnen helpen uw
+            keten(s) door te lichten, knelpunten bloot te leggen en mee te denken (en te doen) bij
+            het oplossen van die knelpunten. Niet alleen op de harde kant maar zeker ook op de
+            zachte kant, want uiteindelijk moet een duidelijke koers en implementatieplan in
+            combinatie met de juiste sturing en teamcoaching u helpen de goede dingen te doen en de
+            dingen goed te doen!
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
