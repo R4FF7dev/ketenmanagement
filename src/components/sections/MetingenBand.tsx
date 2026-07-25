@@ -8,11 +8,11 @@ export function MetingenBand() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-navy-deep text-white">
+    <section className="relative bg-navy-deep text-white">
       <div className="blueprint-bg absolute inset-0 opacity-30" aria-hidden />
       <div className="container-x relative py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
             <div className="section-label text-orange">
               <span className="text-white/40">03</span>
               <span className="h-px w-6 bg-orange/70" aria-hidden />

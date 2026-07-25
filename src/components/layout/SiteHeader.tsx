@@ -25,6 +25,7 @@ export function SiteHeader() {
                   to={item.to}
                   className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-navy"
                   activeProps={{ className: "text-navy" }}
+                  activeOptions={{ exact: item.to === "/" }}
                 >
                   {item.label}
                 </Link>
@@ -54,6 +55,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className="block border-b border-hairline py-3 text-sm font-medium text-ink/80"
                   activeProps={{ className: "text-navy" }}
+                  activeOptions={{ exact: item.to === "/" }}
                 >
                   {item.label}
                 </Link>

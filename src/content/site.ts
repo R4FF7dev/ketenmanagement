@@ -42,6 +42,7 @@ export const SITE = {
 export const SOCIABLEKIT_LINKEDIN_WIDGET_ID: string = "25695335";
 
 export const NAV = [
+  { to: "/", label: "Home" },
   { to: "/over-ons", label: "Over ons" },
   { to: "/diensten", label: "Diensten" },
   { to: "/ketenmetingen", label: "Maturity Metingen" },
@@ -91,6 +92,11 @@ export const METINGEN = [
     code: "KSI",
     title: "Externe Ketenmaturity Meting (KSI)",
     body: "Brengt in kaart hoe volwassen de samenwerking tussen partners in een keten is, beoordeeld vanuit zes invalshoeken: langetermijnsamenwerking en gezamenlijke doelen, vroege betrokkenheid van partners, informatiedeling, prestatiemeting, gezamenlijk verbeteren en een gezamenlijk verdienmodel. Zo worden verbeterpunten en vervolgstappen concreet.",
+  },
+  {
+    code: "K8",
+    title: "De Kr8 van Zacht",
+    body: "Ontwikkeld met Marion Muller, coach en trainer gespecialiseerd in de zachte kant van samenwerken. We brengen vijf randvoorwaarden voor succesvolle samenwerking in kaart: vertrouwen, omgaan met verschillen, heldere afspraken, effectieve communicatie en teambelang. Zo wordt zichtbaar waar de samenwerking stevig is en waar ontwikkeling nodig is.",
   },
   {
     code: "RMM",
