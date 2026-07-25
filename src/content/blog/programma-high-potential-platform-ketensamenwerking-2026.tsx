@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import tcoImage from "@/assets/blog 3/TCO.png";
-import introImage from "@/assets/blog 3/Ketensamenwerking-Intern-Extern-BLMC-1200x630-1.jpg";
-import predictiveMaintenanceImage from "@/assets/blog 3/predictive-maintenance.jpg";
+import tcoImage from "@/assets/blog 1/TCO.png";
+import introImage from "@/assets/blog 1/Ketensamenwerking-Intern-Extern-BLMC-1200x630-1.jpg";
+import predictiveMaintenanceImage from "@/assets/blog 1/predictive-maintenance.jpg";
 import rgsImage from "@/assets/blog 3/RGS.jpg";
 
 const DEELNEMERS = [
