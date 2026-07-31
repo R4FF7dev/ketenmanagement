@@ -40,8 +40,7 @@ function KetenmetingenPage() {
         <div className="container-x py-16 md:py-24">
           <SectionLabel>Maturity Metingen</SectionLabel>
           <h1 className="heading-rule mt-5 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
-            Voer cyclische Maturity Meting uit om te bepalen of u op de juiste wijze invulling geeft
-            aan de principes van Ketensamenwerking/RGS
+            Meet of u ketensamenwerking en RGS goed toepast
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-soft">
             U plukt pas de vruchten van de implementatie van in- of externe ketensamenwerking / RGS
