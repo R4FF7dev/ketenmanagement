@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionLabel } from "@/components/ui/section-label";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { SOCIABLEKIT_LINKEDIN_WIDGET_ID } from "@/content/site";
+
+const WIDGET_TIMEOUT_MS = 8000;
 
 // Confirmed against the real embed snippet from the SociableKIT dashboard.
 // Note the container class is singular ("profile-post") while the script
@@ -37,8 +39,40 @@ function useLinkedInWidgetScript() {
   }, []);
 }
 
+// SociableKIT's CDN occasionally becomes slow or unresponsive (observed
+// connect times of 7-10s+ vs. <1s for other Cloudflare-fronted hosts), which
+// leaves widget.js never executing and the container permanently empty. This
+// watches for the script actually injecting anything and, if nothing shows
+// up in time, swaps in a plain link so the section doesn't look broken.
+function useLinkedInWidgetTimeout(containerRef: React.RefObject<HTMLDivElement | null>) {
+  const [timedOut, setTimedOut] = useState(false);
+
+  useEffect(() => {
+    if (!isLinkedInWidgetConfigured || !containerRef.current) return;
+
+    const observer = new MutationObserver(() => {
+      if (containerRef.current && containerRef.current.children.length > 0) {
+        setTimedOut(false);
+        cleanup();
+      }
+    });
+    observer.observe(containerRef.current, { childList: true });
+    const timer = setTimeout(() => setTimedOut(true), WIDGET_TIMEOUT_MS);
+
+    function cleanup() {
+      observer.disconnect();
+      clearTimeout(timer);
+    }
+    return cleanup;
+  }, [containerRef]);
+
+  return timedOut;
+}
+
 export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) {
   useLinkedInWidgetScript();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const timedOut = useLinkedInWidgetTimeout(containerRef);
 
   if (!isLinkedInWidgetConfigured) {
     return (
@@ -49,11 +83,22 @@ export function LinkedInWidgetEmbed({ compact = false }: { compact?: boolean }) 
   }
 
   const widget = (
-    <div
-      className={WIDGET_CLASS}
-      data-embed-id={SOCIABLEKIT_LINKEDIN_WIDGET_ID}
-      suppressHydrationWarning
-    />
+    <div>
+      <div
+        ref={containerRef}
+        className={WIDGET_CLASS}
+        data-embed-id={SOCIABLEKIT_LINKEDIN_WIDGET_ID}
+        suppressHydrationWarning
+      />
+      {timedOut && (
+        <div className="rounded-lg border border-dashed border-hairline bg-white p-10 text-center text-sm text-slate-soft">
+          De LinkedIn-feed laadt op dit moment niet.
+          <div className="mt-4 flex justify-center">
+            <LinkedInButton variant="outline" />
+          </div>
+        </div>
+      )}
+    </div>
   );
 
   if (!compact) return widget;
