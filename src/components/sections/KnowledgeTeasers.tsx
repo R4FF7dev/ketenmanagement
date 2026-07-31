@@ -9,7 +9,7 @@ export function KnowledgeTeasers() {
       <div className="container-x py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>Publicaties</SectionLabel>
+            <SectionLabel>Externe blogs</SectionLabel>
             <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
               Laatste inzichten over ketensamenwerking
             </h2>
