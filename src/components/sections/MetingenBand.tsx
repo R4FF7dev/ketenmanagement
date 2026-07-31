@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { METINGEN } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
 export function MetingenBand() {
   const [expanded, setExpanded] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+  const [moreHeight, setMoreHeight] = useState("0px");
+
+  useEffect(() => {
+    if (!moreRef.current) return;
+    setMoreHeight(expanded ? `${moreRef.current.scrollHeight}px` : "0px");
+  }, [expanded]);
 
   return (
     <section className="relative bg-navy-deep text-white">
@@ -14,8 +21,6 @@ export function MetingenBand() {
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5 lg:sticky lg:top-28 lg:self-start">
             <div className="section-label text-orange">
-              <span className="text-white/40">03</span>
-              <span className="h-px w-6 bg-orange/70" aria-hidden />
               <span>Maturity Metingen</span>
             </div>
             <h2 className="mt-5 font-display text-3xl font-semibold text-white md:text-4xl">
@@ -30,8 +35,11 @@ export function MetingenBand() {
               het maken van slimme keuzes bij het configureren van de bouwopgave zelf, zodat
               daardoor een optimale TCO ontstaat.
             </p>
-            {expanded && (
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/70">
+            <div
+              className="overflow-hidden transition-[height] duration-500 ease-in-out"
+              style={{ height: moreHeight }}
+            >
+              <p ref={moreRef} className="max-w-2xl pt-4 text-base leading-relaxed text-white/70">
                 De mate waarin ketens volgens de principes van in- en externe ketensamenwerking zijn
                 ingericht alsook de mate waarin invulling wordt gegeven aan de principes van RGS, is
                 te meten. Door ook nog te kijken naar de mate waarin teams vanuit de zachte kant
@@ -41,18 +49,18 @@ export function MetingenBand() {
                 te zorgen dat er maximaal waarde wordt gerealiseerd in ambitieuze
                 samenwerkingsverbanden.
               </p>
-            )}
+            </div>
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
               className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-white hover:text-orange"
             >
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+              {expanded ? "Lees minder" : "Lees meer"}
+              <ArrowRight
+                className={`h-4 w-4 transition-transform duration-300 ${expanded ? "-rotate-90" : ""}`}
                 aria-hidden
               />
-              <span className="sr-only">{expanded ? "Lees minder" : "Lees meer"}</span>
             </button>
             <Link
               to="/ketenmetingen"

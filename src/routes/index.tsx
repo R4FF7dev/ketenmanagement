@@ -4,7 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { AuthorityPillars } from "@/components/sections/AuthorityPillars";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { MetingenBand } from "@/components/sections/MetingenBand";
-import { KnowledgeTeasers } from "@/components/sections/KnowledgeTeasers";
+import { OwnPublications } from "@/components/sections/OwnPublications";
 import { SectorsGrid } from "@/components/sections/SectorsGrid";
 import { ContactCta } from "@/components/sections/ContactCta";
 
@@ -36,7 +36,7 @@ function HomePage() {
       <AuthorityPillars />
       <ServicesGrid />
       <MetingenBand />
-      <KnowledgeTeasers />
+      <OwnPublications />
       <SectorsGrid />
       <ContactCta />
     </SiteShell>

@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { SectionLabel } from "@/components/ui/section-label";
@@ -24,11 +25,20 @@ export const Route = createFileRoute("/ketenmetingen")({
 });
 
 function KetenmetingenPage() {
+  const [expanded, setExpanded] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+  const [moreHeight, setMoreHeight] = useState("0px");
+
+  useEffect(() => {
+    if (!moreRef.current) return;
+    setMoreHeight(expanded ? `${moreRef.current.scrollHeight}px` : "0px");
+  }, [expanded]);
+
   return (
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
         <div className="container-x py-16 md:py-24">
-          <SectionLabel number="01">Maturity Metingen</SectionLabel>
+          <SectionLabel>Maturity Metingen</SectionLabel>
           <h1 className="heading-rule mt-5 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
             Voer cyclische Maturity Meting uit om te bepalen of u op de juiste wijze invulling geeft
             aan de principes van Ketensamenwerking/RGS
@@ -39,15 +49,40 @@ function KetenmetingenPage() {
             geïmplementeerd hebt. Daar waar ketensamenwerking meer gaat over het stroomlijnen van de
             samenwerking binnen en tussen organisaties gaat de toepassing van RGS primair over het
             maken van slimme keuzes bij het configureren van de bouwopgave zelf, zodat daardoor een
-            optimale TCO ontstaat. De mate waarin ketens volgens de principes van in- en externe
-            ketensamenwerking zijn ingericht alsook de mate waarin invulling wordt gegeven aan de
-            principes van RGS, is te meten. Door ook nog te kijken naar de mate waarin teams vanuit
-            de zachte kant slim zijn ingericht, kunnen wij partijen voorzien van een schat aan
-            inzichten die gebruikt kunnen worden om bestaande samenwerkingsverbanden slim te laten
-            doorstarten of richting te geven bij de start van nieuwe samenwerkingsverbanden. Dit om
-            er voor te zorgen dat er maximaal waarde wordt gerealiseerd in ambitieuze
-            samenwerkingsverbanden.
+            optimale TCO ontstaat.
           </p>
+          <div
+            className="overflow-hidden transition-[height] duration-500 ease-in-out"
+            style={{ height: moreHeight }}
+          >
+            <div ref={moreRef} className="max-w-3xl space-y-4 pt-4">
+              <p className="text-lg leading-relaxed text-slate-soft">
+                De mate waarin ketens volgens de principes van in- en externe ketensamenwerking zijn
+                ingericht alsook de mate waarin invulling wordt gegeven aan de principes van RGS, is
+                te meten.
+              </p>
+              <p className="text-lg leading-relaxed text-slate-soft">
+                Door ook nog te kijken naar de mate waarin teams vanuit de zachte kant slim zijn
+                ingericht, kunnen wij partijen voorzien van een schat aan inzichten die gebruikt
+                kunnen worden om bestaande samenwerkingsverbanden slim te laten doorstarten of
+                richting te geven bij de start van nieuwe samenwerkingsverbanden. Dit om er voor te
+                zorgen dat er maximaal waarde wordt gerealiseerd in ambitieuze
+                samenwerkingsverbanden.
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-navy-deep hover:text-orange"
+          >
+            {expanded ? "Lees minder" : "Lees meer"}
+            <ArrowRight
+              className={`h-4 w-4 transition-transform duration-300 ${expanded ? "-rotate-90" : ""}`}
+              aria-hidden
+            />
+          </button>
         </div>
       </section>
 

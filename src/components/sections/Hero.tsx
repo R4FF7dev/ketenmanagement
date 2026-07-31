@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown, GraduationCap, CheckCircle2 } from "lucide-react";
+import { ArrowRight, GraduationCap, CheckCircle2 } from "lucide-react";
 import heroImage from "@/assets/Marcel.png";
 
 export function Hero() {
   const [expanded, setExpanded] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
+  const [moreHeight, setMoreHeight] = useState("0px");
+
+  useEffect(() => {
+    if (!moreRef.current) return;
+    setMoreHeight(expanded ? `${moreRef.current.scrollHeight}px` : "0px");
+  }, [expanded]);
 
   return (
     <section className="relative bg-surface">
@@ -32,8 +39,11 @@ export function Hero() {
               Ketensamenwerking en RGS is geen sinecure. Het vergt kennis, inzicht,
               doorzettingsvermogen, koersvastheid en een plan.
             </p>
-            {expanded && (
-              <>
+            <div
+              className="overflow-hidden transition-[height] duration-500 ease-in-out"
+              style={{ height: moreHeight }}
+            >
+              <div ref={moreRef} className="space-y-4 pt-4">
                 <p>
                   Een plan dat wij graag samen met u en uw team ontwikkelen en implementeren tot dat
                   de beoogde resultaten worden bereikt. Hoe we dat doen en welke (deel)diensten we
@@ -64,19 +74,19 @@ export function Hero() {
                     06 - 144 60 880
                   </a>
                 </p>
-              </>
-            )}
+              </div>
+            </div>
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="flex items-center gap-1.5 text-sm font-semibold text-navy-deep hover:text-orange"
+              className="mt-4 flex items-center gap-1.5 text-sm font-semibold text-navy-deep hover:text-orange"
             >
-              <ChevronDown
-                className={`h-4 w-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+              {expanded ? "Lees minder" : "Lees meer"}
+              <ArrowRight
+                className={`h-4 w-4 transition-transform duration-300 ${expanded ? "-rotate-90" : ""}`}
                 aria-hidden
               />
-              <span className="sr-only">{expanded ? "Lees minder" : "Lees meer"}</span>
             </button>
           </div>
           <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -94,10 +104,10 @@ export function Hero() {
               Bekijk diensten
             </Link>
             <Link
-              to="/kennis"
+              to="/publicaties"
               className="inline-flex items-center gap-2 px-2 py-3 text-sm font-semibold text-navy-deep underline decoration-orange decoration-2 underline-offset-[6px] hover:decoration-navy"
             >
-              Lees kennisartikelen
+              Lees publicaties
             </Link>
           </div>
         </div>

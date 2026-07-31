@@ -3,11 +3,11 @@ import { SiteShell } from "@/components/layout/SiteShell";
 import { SectionLabel } from "@/components/ui/section-label";
 import { LinkedInButton } from "@/components/ui/linkedin-button";
 import { ContactCta } from "@/components/sections/ContactCta";
-import abstractImage from "@/assets/abstract-blueprint.jpg";
+import urbanImage from "@/assets/hero-urban.jpg";
 import marionImage from "@/assets/Marion.jpg";
 import marcelImage from "@/assets/Marcel.jpg";
 import egbertImage from "@/assets/Egbert.jpg";
-import { GraduationCap, Microscope, Users, Target, ArrowRight } from "lucide-react";
+import { Microscope, Users, Target, ArrowRight } from "lucide-react";
 
 const team = [
   {
@@ -31,11 +31,6 @@ const team = [
 ] as const;
 
 const pillars = [
-  {
-    icon: GraduationCap,
-    title: "Gepromoveerd",
-    body: "Wetenschappelijk onderzoek naar ketensamenwerking in bouw en vastgoed.",
-  },
   {
     icon: Microscope,
     title: "Onderzoekend",
@@ -76,7 +71,7 @@ function OverOns() {
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
         <div className="container-x py-20 md:py-24">
-          <SectionLabel number="01">Ons team</SectionLabel>
+          <SectionLabel>Ons team</SectionLabel>
           <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
             Samen sterker in ketensamenwerking
           </h2>
@@ -114,21 +109,23 @@ function OverOns() {
       <section className="border-b border-hairline bg-surface">
         <div className="container-x grid gap-12 py-16 md:py-24 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <SectionLabel number="02">Over ons</SectionLabel>
+            <SectionLabel>Over ons</SectionLabel>
             <h1 className="heading-rule mt-6 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
-              dr.ing. Marcel Noordhuis
+              Onderscheidend vermogen in ketensamenwerking en RGS
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-soft">
-              Marcel Noordhuis is gepromoveerd op ketensamenwerking in bouw en vastgoed en geldt in
-              Nederland als een gezaghebbende specialist op dit terrein. Hij combineert
-              wetenschappelijke diepgang met jarenlange praktijkervaring in complexe
-              samenwerkingsverbanden.
+              Wat ons onderscheidt is de combinatie van wetenschappelijke diepgang en jarenlange
+              praktijkervaring in complexe samenwerkingsverbanden. Waar advies vaak blijft steken in
+              modellen en theorie, vertalen wij de principes van ketensamenwerking en RGS naar
+              concrete stappen die binnen uw organisatie en in de samenwerking met ketenpartners
+              daadwerkelijk werken.
             </p>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-soft">
-              Hij adviseert en begeleidt corporaties, gemeenten, bouwbedrijven, installateurs,
-              onderhouds- en vastgoedorganisaties bij het inrichten, meten en doorontwikkelen van
-              ketensamenwerking. Van strategie en governance tot uitvoering, ketenregie en
-              prestatiesturing.
+              Wij kijken daarbij niet alleen naar de harde kant van samenwerking, zoals sturing,
+              meetbaarheid en resultaten, maar minstens zo veel naar de zachte kant: gedrag,
+              vertrouwen en communicatie tussen mensen en teams. Die combinatie, onderbouwd met
+              eigen meetinstrumenten, maakt het verschil tussen samenwerking die op papier goed
+              klinkt en samenwerking die in de praktijk daadwerkelijk resultaat oplevert.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -144,10 +141,10 @@ function OverOns() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-hairline bg-navy">
               <img
-                src={abstractImage}
-                alt="Abstracte architecturale compositie als symbool van ketensamenwerking"
-                width={1280}
-                height={896}
+                src={urbanImage}
+                alt="Stedelijke skyline met bouwkranen en nieuwbouwappartementen"
+                width={1920}
+                height={1080}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
@@ -158,11 +155,11 @@ function OverOns() {
 
       <section className="bg-white">
         <div className="container-x py-20 md:py-24">
-          <SectionLabel number="03">Aanpak &amp; expertise</SectionLabel>
+          <SectionLabel>Aanpak &amp; expertise</SectionLabel>
           <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
             Wetenschap én praktijk
           </h2>
-          <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-3">
             {pillars.map((p) => {
               const Icon = p.icon;
               return (
