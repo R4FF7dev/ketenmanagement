@@ -46,7 +46,7 @@ export const NAV = [
   { to: "/over-ons", label: "Over ons" },
   { to: "/diensten", label: "Diensten" },
   { to: "/ketenmetingen", label: "Maturity Metingen" },
-  { to: "/kennis", label: "Publicaties" },
+  { to: "/publicaties", label: "Publicaties" },
   { to: "/opdrachtgevers", label: "Opdrachtgevers" },
   { to: "/contact", label: "Contact" },
 ] as const;

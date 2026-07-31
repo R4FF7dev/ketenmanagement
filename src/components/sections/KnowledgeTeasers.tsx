@@ -9,7 +9,7 @@ export function KnowledgeTeasers() {
       <div className="container-x py-20 md:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel number="04">Publicaties</SectionLabel>
+            <SectionLabel>Publicaties</SectionLabel>
             <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
               Laatste inzichten over ketensamenwerking
             </h2>
@@ -32,7 +32,7 @@ export function KnowledgeTeasers() {
               className="group flex flex-col overflow-hidden rounded-lg border border-hairline bg-white transition-shadow hover:shadow-[0_12px_40px_-20px_rgba(11,31,58,0.25)]"
             >
               <Link
-                to="/kennis/$slug"
+                to="/publicaties/$slug"
                 params={{ slug: p.slug }}
                 className="relative block aspect-[16/9] overflow-hidden bg-navy"
               >
@@ -56,7 +56,7 @@ export function KnowledgeTeasers() {
                 <h3 className="font-display text-lg font-semibold text-navy-deep">{p.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-soft">{p.excerpt}</p>
                 <Link
-                  to="/kennis/$slug"
+                  to="/publicaties/$slug"
                   params={{ slug: p.slug }}
                   className="mt-6 inline-flex w-fit items-center gap-2 rounded-md border border-navy/20 px-4 py-2 text-sm font-semibold text-navy-deep transition-colors hover:border-navy hover:bg-surface"
                 >

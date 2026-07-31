@@ -19,7 +19,7 @@ export function SectorsGrid() {
       <div className="container-x py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionLabel number="05">Opdrachtgevers</SectionLabel>
+            <SectionLabel>Opdrachtgevers</SectionLabel>
             <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
               Voor wie werken wij?
             </h2>

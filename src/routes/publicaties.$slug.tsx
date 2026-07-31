@@ -14,7 +14,7 @@ const BLOG_CONTENT: Record<string, () => React.JSX.Element> = {
   "programma-high-potential-platform-ketensamenwerking-2026": ProgrammaHighPotentialPlatform2026,
 };
 
-export const Route = createFileRoute("/kennis/$slug")({
+export const Route = createFileRoute("/publicaties/$slug")({
   loader: ({ params }) => {
     const post = BLOG_POSTS.find((p) => p.slug === params.slug);
     if (!post) throw notFound();
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/kennis/$slug")({
           { name: "description", content: loaderData.excerpt },
           { property: "og:title", content: loaderData.title },
           { property: "og:description", content: loaderData.excerpt },
-          { property: "og:url", content: `/kennis/${loaderData.slug}` },
+          { property: "og:url", content: `/publicaties/${loaderData.slug}` },
         ]
       : [],
   }),
@@ -43,14 +43,14 @@ function BlogPostPage() {
       <section className="border-b border-hairline bg-surface">
         <div className="container-x py-16 md:py-24">
           <Link
-            to="/kennis"
+            to="/publicaties"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-orange"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
             Terug naar publicaties
           </Link>
           <div className="mt-8">
-            <SectionLabel number="01">{post.category}</SectionLabel>
+            <SectionLabel>{post.category}</SectionLabel>
           </div>
           <h1 className="heading-rule mt-5 font-display text-3xl font-semibold text-navy-deep md:text-5xl">
             {post.title}

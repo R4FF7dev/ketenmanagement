@@ -9,16 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PublicatiesRouteImport } from './routes/publicaties'
 import { Route as OverOnsRouteImport } from './routes/over-ons'
 import { Route as OpdrachtgeversRouteImport } from './routes/opdrachtgevers'
 import { Route as KetenmetingenRouteImport } from './routes/ketenmetingen'
-import { Route as KennisRouteImport } from './routes/kennis'
 import { Route as DienstenRouteImport } from './routes/diensten'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as KennisIndexRouteImport } from './routes/kennis.index'
-import { Route as KennisSlugRouteImport } from './routes/kennis.$slug'
+import { Route as PublicatiesIndexRouteImport } from './routes/publicaties.index'
+import { Route as PublicatiesSlugRouteImport } from './routes/publicaties.$slug'
 
+const PublicatiesRoute = PublicatiesRouteImport.update({
+  id: '/publicaties',
+  path: '/publicaties',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OverOnsRoute = OverOnsRouteImport.update({
   id: '/over-ons',
   path: '/over-ons',
@@ -32,11 +37,6 @@ const OpdrachtgeversRoute = OpdrachtgeversRouteImport.update({
 const KetenmetingenRoute = KetenmetingenRouteImport.update({
   id: '/ketenmetingen',
   path: '/ketenmetingen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KennisRoute = KennisRouteImport.update({
-  id: '/kennis',
-  path: '/kennis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DienstenRoute = DienstenRouteImport.update({
@@ -54,27 +54,27 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KennisIndexRoute = KennisIndexRouteImport.update({
+const PublicatiesIndexRoute = PublicatiesIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => KennisRoute,
+  getParentRoute: () => PublicatiesRoute,
 } as any)
-const KennisSlugRoute = KennisSlugRouteImport.update({
+const PublicatiesSlugRoute = PublicatiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
-  getParentRoute: () => KennisRoute,
+  getParentRoute: () => PublicatiesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
-  '/kennis': typeof KennisRouteWithChildren
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
-  '/kennis/$slug': typeof KennisSlugRoute
-  '/kennis/': typeof KennisIndexRoute
+  '/publicaties': typeof PublicatiesRouteWithChildren
+  '/publicaties/$slug': typeof PublicatiesSlugRoute
+  '/publicaties/': typeof PublicatiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -83,20 +83,20 @@ export interface FileRoutesByTo {
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
-  '/kennis/$slug': typeof KennisSlugRoute
-  '/kennis': typeof KennisIndexRoute
+  '/publicaties/$slug': typeof PublicatiesSlugRoute
+  '/publicaties': typeof PublicatiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/diensten': typeof DienstenRoute
-  '/kennis': typeof KennisRouteWithChildren
   '/ketenmetingen': typeof KetenmetingenRoute
   '/opdrachtgevers': typeof OpdrachtgeversRoute
   '/over-ons': typeof OverOnsRoute
-  '/kennis/$slug': typeof KennisSlugRoute
-  '/kennis/': typeof KennisIndexRoute
+  '/publicaties': typeof PublicatiesRouteWithChildren
+  '/publicaties/$slug': typeof PublicatiesSlugRoute
+  '/publicaties/': typeof PublicatiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -104,12 +104,12 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/diensten'
-    | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
-    | '/kennis/$slug'
-    | '/kennis/'
+    | '/publicaties'
+    | '/publicaties/$slug'
+    | '/publicaties/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -118,33 +118,40 @@ export interface FileRouteTypes {
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
-    | '/kennis/$slug'
-    | '/kennis'
+    | '/publicaties/$slug'
+    | '/publicaties'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/diensten'
-    | '/kennis'
     | '/ketenmetingen'
     | '/opdrachtgevers'
     | '/over-ons'
-    | '/kennis/$slug'
-    | '/kennis/'
+    | '/publicaties'
+    | '/publicaties/$slug'
+    | '/publicaties/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DienstenRoute: typeof DienstenRoute
-  KennisRoute: typeof KennisRouteWithChildren
   KetenmetingenRoute: typeof KetenmetingenRoute
   OpdrachtgeversRoute: typeof OpdrachtgeversRoute
   OverOnsRoute: typeof OverOnsRoute
+  PublicatiesRoute: typeof PublicatiesRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/publicaties': {
+      id: '/publicaties'
+      path: '/publicaties'
+      fullPath: '/publicaties'
+      preLoaderRoute: typeof PublicatiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/over-ons': {
       id: '/over-ons'
       path: '/over-ons'
@@ -164,13 +171,6 @@ declare module '@tanstack/react-router' {
       path: '/ketenmetingen'
       fullPath: '/ketenmetingen'
       preLoaderRoute: typeof KetenmetingenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kennis': {
-      id: '/kennis'
-      path: '/kennis'
-      fullPath: '/kennis'
-      preLoaderRoute: typeof KennisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diensten': {
@@ -194,44 +194,45 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/kennis/': {
-      id: '/kennis/'
+    '/publicaties/': {
+      id: '/publicaties/'
       path: '/'
-      fullPath: '/kennis/'
-      preLoaderRoute: typeof KennisIndexRouteImport
-      parentRoute: typeof KennisRoute
+      fullPath: '/publicaties/'
+      preLoaderRoute: typeof PublicatiesIndexRouteImport
+      parentRoute: typeof PublicatiesRoute
     }
-    '/kennis/$slug': {
-      id: '/kennis/$slug'
+    '/publicaties/$slug': {
+      id: '/publicaties/$slug'
       path: '/$slug'
-      fullPath: '/kennis/$slug'
-      preLoaderRoute: typeof KennisSlugRouteImport
-      parentRoute: typeof KennisRoute
+      fullPath: '/publicaties/$slug'
+      preLoaderRoute: typeof PublicatiesSlugRouteImport
+      parentRoute: typeof PublicatiesRoute
     }
   }
 }
 
-interface KennisRouteChildren {
-  KennisSlugRoute: typeof KennisSlugRoute
-  KennisIndexRoute: typeof KennisIndexRoute
+interface PublicatiesRouteChildren {
+  PublicatiesSlugRoute: typeof PublicatiesSlugRoute
+  PublicatiesIndexRoute: typeof PublicatiesIndexRoute
 }
 
-const KennisRouteChildren: KennisRouteChildren = {
-  KennisSlugRoute: KennisSlugRoute,
-  KennisIndexRoute: KennisIndexRoute,
+const PublicatiesRouteChildren: PublicatiesRouteChildren = {
+  PublicatiesSlugRoute: PublicatiesSlugRoute,
+  PublicatiesIndexRoute: PublicatiesIndexRoute,
 }
 
-const KennisRouteWithChildren =
-  KennisRoute._addFileChildren(KennisRouteChildren)
+const PublicatiesRouteWithChildren = PublicatiesRoute._addFileChildren(
+  PublicatiesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DienstenRoute: DienstenRoute,
-  KennisRoute: KennisRouteWithChildren,
   KetenmetingenRoute: KetenmetingenRoute,
   OpdrachtgeversRoute: OpdrachtgeversRoute,
   OverOnsRoute: OverOnsRoute,
+  PublicatiesRoute: PublicatiesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

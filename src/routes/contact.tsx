@@ -29,7 +29,7 @@ function ContactPage() {
     <SiteShell>
       <section className="border-b border-hairline bg-surface">
         <div className="container-x py-16 md:py-24">
-          <SectionLabel number="01">Contact</SectionLabel>
+          <SectionLabel>Contact</SectionLabel>
           <h1 className="heading-rule mt-5 font-display text-4xl font-semibold text-navy-deep md:text-5xl">
             Plan een kennismaking
           </h1>

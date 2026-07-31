@@ -13,8 +13,6 @@ export function ContactCta() {
       <div className="container-x relative py-20 md:py-28">
         <div className="max-w-3xl">
           <div className="section-label text-orange">
-            <span className="text-white/40">06</span>
-            <span className="h-px w-6 bg-orange/70" aria-hidden />
             <span>Kennismaking</span>
           </div>
           <h2 className="mt-5 font-display text-3xl font-semibold text-white md:text-5xl">
