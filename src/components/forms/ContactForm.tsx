@@ -15,8 +15,17 @@ const schema = z.object({
     .regex(/^[+0-9 ()\-./]*$/, "Ongeldig telefoonnummer")
     .optional()
     .or(z.literal("")),
+  interesse: z.string().trim().min(1, "Maak een keuze"),
   bericht: z.string().trim().min(1, "Vul een korte vraag of toelichting in").max(2000),
 });
+
+const INTERESSE_OPTIONS = [
+  "Nader kennis willen maken (wij nemen contact met u op)",
+  "Gebruik willen maken van de interne keten maturity meting (KMM)",
+  "Gebruik willen maken van de externe keten maturity meting (KSI)",
+  "Gebruik willen maken van de RGS maturity meting (RMM)",
+  "Gebruik willen maken van de Kr8 van Zacht meting (KVZ)",
+];
 
 type FormState = z.infer<typeof schema>;
 type Errors = Partial<Record<keyof FormState, string>>;
@@ -45,8 +54,7 @@ export function ContactForm() {
     }
     setErrors({});
     const v = parsed.data;
-    const body =
-      `Bedrijf: ${v.bedrijf}\nNaam: ${v.naam}\nFunctie: ${v.functie}\nE-mail: ${v.email}\nTelefoon: ${v.telefoon ?? ""}\n\n${v.bericht}`;
+    const body = `Bedrijf: ${v.bedrijf}\nNaam: ${v.naam}\nFunctie: ${v.functie}\nE-mail: ${v.email}\nTelefoon: ${v.telefoon ?? ""}\nIk zou graag: ${v.interesse}\n\n${v.bericht}`;
     const href = `mailto:${SITE.email}?subject=${encodeURIComponent(
       `Kennismaking — ${v.bedrijf}`,
     )}&body=${encodeURIComponent(body)}`;
@@ -62,8 +70,8 @@ export function ContactForm() {
           Bedankt voor uw bericht
         </h3>
         <p className="mt-2 text-sm text-slate-soft">
-          Uw e-mailclient is geopend. Verzend de e-mail om uw kennismaking te
-          bevestigen. U ontvangt zo spoedig mogelijk reactie.
+          Uw e-mailclient is geopend. Verzend de e-mail om uw kennismaking te bevestigen. U ontvangt
+          zo spoedig mogelijk reactie.
         </p>
       </div>
     );
@@ -72,32 +80,72 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
       <div>
-        <label htmlFor="bedrijf" className={labelClass}>Bedrijf</label>
-        <input id="bedrijf" name="bedrijf" type="text" className={fieldClass} autoComplete="organization" />
+        <label htmlFor="bedrijf" className={labelClass}>
+          Bedrijf
+        </label>
+        <input
+          id="bedrijf"
+          name="bedrijf"
+          type="text"
+          className={fieldClass}
+          autoComplete="organization"
+        />
         {errors.bedrijf && <p className="mt-1 text-xs text-destructive">{errors.bedrijf}</p>}
       </div>
       <div>
-        <label htmlFor="naam" className={labelClass}>Naam</label>
+        <label htmlFor="naam" className={labelClass}>
+          Naam
+        </label>
         <input id="naam" name="naam" type="text" className={fieldClass} autoComplete="name" />
         {errors.naam && <p className="mt-1 text-xs text-destructive">{errors.naam}</p>}
       </div>
       <div>
-        <label htmlFor="functie" className={labelClass}>Functie</label>
-        <input id="functie" name="functie" type="text" className={fieldClass} autoComplete="organization-title" />
+        <label htmlFor="functie" className={labelClass}>
+          Functie
+        </label>
+        <input
+          id="functie"
+          name="functie"
+          type="text"
+          className={fieldClass}
+          autoComplete="organization-title"
+        />
         {errors.functie && <p className="mt-1 text-xs text-destructive">{errors.functie}</p>}
       </div>
       <div>
-        <label htmlFor="email" className={labelClass}>E-mail</label>
+        <label htmlFor="email" className={labelClass}>
+          E-mail
+        </label>
         <input id="email" name="email" type="email" className={fieldClass} autoComplete="email" />
         {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
       </div>
       <div className="sm:col-span-2">
-        <label htmlFor="telefoon" className={labelClass}>Telefoonnummer</label>
+        <label htmlFor="telefoon" className={labelClass}>
+          Telefoonnummer
+        </label>
         <input id="telefoon" name="telefoon" type="tel" className={fieldClass} autoComplete="tel" />
         {errors.telefoon && <p className="mt-1 text-xs text-destructive">{errors.telefoon}</p>}
       </div>
       <div className="sm:col-span-2">
-        <label htmlFor="bericht" className={labelClass}>Waar wilt u meer over weten?</label>
+        <label htmlFor="interesse" className={labelClass}>
+          Ik zou graag:
+        </label>
+        <select id="interesse" name="interesse" defaultValue="" className={fieldClass}>
+          <option value="" disabled>
+            Maak een keuze
+          </option>
+          {INTERESSE_OPTIONS.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+        {errors.interesse && <p className="mt-1 text-xs text-destructive">{errors.interesse}</p>}
+      </div>
+      <div className="sm:col-span-2">
+        <label htmlFor="bericht" className={labelClass}>
+          Waar wilt u meer over weten?
+        </label>
         <textarea id="bericht" name="bericht" rows={5} className={fieldClass} />
         {errors.bericht && <p className="mt-1 text-xs text-destructive">{errors.bericht}</p>}
       </div>

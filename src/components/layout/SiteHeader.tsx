@@ -19,18 +19,29 @@ export function SiteHeader() {
 
         <nav className="hidden lg:flex" aria-label="Hoofdnavigatie">
           <ul className="flex items-center gap-5">
-            {NAV.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-navy"
-                  activeProps={{ className: "text-navy" }}
-                  activeOptions={{ exact: item.to === "/" }}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+            {NAV.map((item) =>
+              item.to === "/contact" ? (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="inline-flex items-center gap-2 rounded-md bg-orange px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange/90"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ) : (
+                <li key={item.to}>
+                  <Link
+                    to={item.to}
+                    className="whitespace-nowrap text-sm font-medium text-ink/80 transition-colors hover:text-navy"
+                    activeProps={{ className: "text-navy" }}
+                    activeOptions={{ exact: item.to === "/" }}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ),
+            )}
           </ul>
         </nav>
 
