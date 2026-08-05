@@ -53,18 +53,18 @@ export const NAV = [
 
 export const SERVICES = [
   {
-    slug: "inspiratiesessie",
-    icon: Network,
-    title: "Inspiratiesessie RGS en Ketensamenwerking",
-    short:
-      "Overzicht van de ins en outs van RGS en ketensamenwerking, met een discussie over de waarde en consequenties van de toepassing ervan. We staan uitgebreid stil bij de onderliggende bouwstenen en hoe deze succesvol te implementeren zijn, zowel binnen de eigen organisatie als tussen organisaties.",
-  },
-  {
     slug: "workshops",
     icon: Compass,
     title: "Workshops RGS en ketensamenwerking",
     short:
       "Een serie werksessies om vast te stellen of en hoe RGS en ketensamenwerking bijdragen aan uw strategische doelstellingen, met onderwerpen als visie op ketensamenwerking en RGS, sturen op prestaties, KPI's, TCO-doelen, procesgericht werken, gedragsregels en partnerselectie. De workshops resulteren in een gevulde strategiekaart.",
+  },
+  {
+    slug: "inspiratiesessie",
+    icon: Network,
+    title: "Inspiratiesessie RGS en Ketensamenwerking",
+    short:
+      "Overzicht van de ins en outs van RGS en ketensamenwerking, met een discussie over de waarde en consequenties van de toepassing ervan. We staan uitgebreid stil bij de onderliggende bouwstenen en hoe deze succesvol te implementeren zijn, zowel binnen de eigen organisatie als tussen organisaties.",
   },
   {
     slug: "dashboarding",
