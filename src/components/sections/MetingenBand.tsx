@@ -48,6 +48,17 @@ export function MetingenBand() {
                 </div>
                 <h3 className="mt-5 font-display text-lg font-semibold text-white">{m.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">{m.body}</p>
+                {"href" in m && m.href && (
+                  <a
+                    href={m.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-orange hover:text-white"
+                  >
+                    Klik hier voor meer informatie
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </a>
+                )}
               </li>
             ))}
           </ul>

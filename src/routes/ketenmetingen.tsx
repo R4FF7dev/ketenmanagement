@@ -103,6 +103,17 @@ function KetenmetingenPage() {
                   {m.title}
                 </h2>
                 <p className="mt-3 text-base leading-relaxed text-slate-soft">{m.body}</p>
+                {"href" in m && m.href && (
+                  <a
+                    href={m.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy-deep hover:text-orange"
+                  >
+                    Klik hier voor meer informatie
+                    <ArrowRight className="h-4 w-4" aria-hidden />
+                  </a>
+                )}
               </li>
             ))}
           </ul>

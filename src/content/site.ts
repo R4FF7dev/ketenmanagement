@@ -27,6 +27,9 @@ import lescautLogo from "@/assets/Klanten/lescaut.avif";
 import wonenNwfLogo from "@/assets/Klanten/wonen nwf.avif";
 import woonbedrijfLogo from "@/assets/Klanten/woonbedrijf.avif";
 import wonenBreburgLogo from "@/assets/Klanten/a3ff2d_7f8cb9fe5fd848c3b7212d954952fccb~mv2.avif";
+import kmmBrochure from "@/assets/Interne_Keten_Maturity_Meting__KMM_20260812111415 (1).pdf";
+import ksiBrochure from "@/assets/Externe Keten_Maturity_Meting__KSI_20260812114222.pdf";
+import kr8Brochure from "@/assets/KR8_VAN_ZACHT__KvZ__METING_20260806091425.pdf";
 
 export const SITE = {
   name: "Ketenmanagement Interim & Advies",
@@ -87,16 +90,19 @@ export const METINGEN = [
     code: "KMM",
     title: "Interne KetenMaturityMeting (KMM)",
     body: "Een online meetinstrument waarmee uw eigen medewerkers vaststellen hoe volwassen de organisatie is op het gebied van ketensamenwerking, met verbetersuggesties vanuit de organisatie zelf. We beoordelen strategie & beleid, organisatie & processen, mindset & gedrag, monitoren & verbetering, informatie & communicatie en leren & innoveren.",
+    href: kmmBrochure,
   },
   {
     code: "KSI",
     title: "Externe Ketenmaturity Meting (KSI)",
     body: "Brengt in kaart hoe volwassen de samenwerking tussen partners in een keten is, beoordeeld vanuit zes invalshoeken: langetermijnsamenwerking en gezamenlijke doelen, vroege betrokkenheid van partners, informatiedeling, prestatiemeting, gezamenlijk verbeteren en een gezamenlijk verdienmodel. Zo worden verbeterpunten en vervolgstappen concreet.",
+    href: ksiBrochure,
   },
   {
     code: "K8",
     title: "De Kr8 van Zacht",
     body: "Ontwikkeld met Marion Muller, coach en trainer gespecialiseerd in de zachte kant van samenwerken. We brengen vijf randvoorwaarden voor succesvolle samenwerking in kaart: vertrouwen, omgaan met verschillen, heldere afspraken, effectieve communicatie en teambelang. Zo wordt zichtbaar waar de samenwerking stevig is en waar ontwikkeling nodig is.",
+    href: kr8Brochure,
   },
   {
     code: "RMM",
