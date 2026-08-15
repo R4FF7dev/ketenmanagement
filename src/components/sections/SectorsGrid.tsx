@@ -1,19 +1,7 @@
-import { useRef } from "react";
-import { SECTORS, CLIENT_LOGOS } from "@/content/site";
+import { SECTORS } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
 export function SectorsGrid() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  // Changing animation-duration on hover restarts/jumps the CSS animation's
-  // timing calculation. Setting playbackRate on the running animation via
-  // the Web Animations API instead slows it down in place, with no jump.
-  const setSpeed = (rate: number) => {
-    for (const animation of trackRef.current?.getAnimations() ?? []) {
-      animation.playbackRate = rate;
-    }
-  };
-
   return (
     <section className="bg-surface">
       <div className="container-x py-20 md:py-28">
@@ -45,25 +33,6 @@ export function SectorsGrid() {
               + uw organisatie
             </li>
           </ul>
-        </div>
-
-        <div className="mt-12 overflow-hidden border-x border-hairline bg-white py-10 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div
-            ref={trackRef}
-            className="animate-marquee flex w-max items-center gap-20"
-            onMouseEnter={() => setSpeed(0.15)}
-            onMouseLeave={() => setSpeed(1)}
-          >
-            {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((logo, i) => (
-              <img
-                key={`${logo.name}-${i}`}
-                src={logo.src}
-                alt={logo.name}
-                loading="lazy"
-                className="h-16 w-auto shrink-0 object-contain opacity-50 transition hover:opacity-100"
-              />
-            ))}
-          </div>
         </div>
       </div>
     </section>

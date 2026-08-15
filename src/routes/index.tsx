@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { Hero } from "@/components/sections/Hero";
+import { ClientLogosMarquee } from "@/components/sections/ClientLogosMarquee";
 import { AuthorityPillars } from "@/components/sections/AuthorityPillars";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { MetingenBand } from "@/components/sections/MetingenBand";
@@ -33,6 +34,7 @@ function HomePage() {
   return (
     <SiteShell>
       <Hero />
+      <ClientLogosMarquee />
       <AuthorityPillars />
       <ServicesGrid />
       <MetingenBand />
