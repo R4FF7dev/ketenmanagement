@@ -4,7 +4,7 @@ import { SITE, NAV, SERVICES } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 bg-navy-deep text-white/80">
+    <footer className="bg-navy-deep text-white/80">
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         <div>
           <div className="font-display text-lg font-semibold text-white">Ketenmanagement</div>

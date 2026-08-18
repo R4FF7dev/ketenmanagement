@@ -11,7 +11,7 @@ export const Route = createFileRoute("/opdrachtgevers")({
       {
         name: "description",
         content:
-          "Marcel werkt voor woningcorporaties, gemeenten, bouwers, installateurs, vastgoed- en onderhoudsorganisaties aan complexe ketensamenwerking.",
+          "Marcel werkt voor woningcorporaties, bouwers, installateurs, vastgoed- en onderhoudsorganisaties aan complexe ketensamenwerking.",
       },
       { property: "og:title", content: "Opdrachtgevers" },
       { property: "og:description", content: "Sectoren en typen opdrachtgevers." },

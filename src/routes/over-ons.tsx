@@ -55,7 +55,7 @@ export const Route = createFileRoute("/over-ons")({
       {
         name: "description",
         content:
-          "dr.ing. Marcel Noordhuis: gepromoveerd specialist in ketensamenwerking voor bouw, vastgoed, corporaties en gemeenten.",
+          "dr.ing. Marcel Noordhuis: gepromoveerd specialist in ketensamenwerking voor bouw, vastgoed en corporaties.",
       },
       { property: "og:title", content: "Over Marcel Noordhuis" },
       { property: "og:description", content: "Gepromoveerd specialist in ketensamenwerking." },

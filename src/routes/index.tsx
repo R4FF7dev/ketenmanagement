@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "dr.ing. Marcel Noordhuis helpt bouw, vastgoed, corporaties en gemeenten om ketensamenwerking meetbaar, bestuurbaar en resultaatgericht te maken.",
+          "dr.ing. Marcel Noordhuis helpt bouw, vastgoed en corporaties om ketensamenwerking meetbaar, bestuurbaar en resultaatgericht te maken.",
       },
       { property: "og:title", content: "Ketenmanagement Interim & Advies" },
       {

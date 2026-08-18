@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Plan een kennismaking met dr.ing. Marcel Noordhuis. Advies en ketenregie voor bouw, vastgoed, corporaties en gemeenten.",
+          "Plan een kennismaking met dr.ing. Marcel Noordhuis. Advies en ketenregie voor bouw, vastgoed en corporaties.",
       },
       { property: "og:title", content: "Contact — Marcel Noordhuis" },
       { property: "og:description", content: "Plan een kennismaking." },

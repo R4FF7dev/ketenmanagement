@@ -33,7 +33,7 @@ export function Hero() {
           </h1>
           <div className="mt-7 max-w-2xl space-y-4 text-lg leading-relaxed text-slate-soft">
             <p>
-              Wij ondersteunen corporaties, gemeenten, bouwers en installateurs op interim of
+              Wij ondersteunen corporaties, bouwers en installateurs op interim of
               projectbasis bij de implementatie van Ketensamenwerking/RGS zowel binnen de eigen
               organisatie alsook in samenwerking met ketenpartners. Het implementeren van
               Ketensamenwerking en RGS is geen sinecure. Het vergt kennis, inzicht,
@@ -134,7 +134,7 @@ export function Hero() {
                   </div>
                   <p className="mt-1 text-xs leading-relaxed text-white/75">
                     Onafhankelijk team met wetenschappelijke diepgang. Wij ondersteunen corporaties,
-                    gemeenten, bouwers en installateurs bij ketensamenwerking.
+                    bouwers en installateurs bij ketensamenwerking.
                   </p>
                   <div className="mt-3 flex items-center gap-1.5 text-[11px] text-white/70">
                     <CheckCircle2 className="h-3.5 w-3.5 text-orange" aria-hidden />

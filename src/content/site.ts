@@ -3,7 +3,6 @@ import {
   Compass,
   Handshake,
   ClipboardList,
-  Landmark,
   HardHat,
   Wrench,
   Home,
@@ -113,7 +112,6 @@ export const METINGEN = [
 
 export const SECTORS = [
   { icon: Home, title: "Woningcorporaties" },
-  { icon: Landmark, title: "Gemeenten" },
   { icon: HardHat, title: "Bouwbedrijven" },
   { icon: Wrench, title: "Installateurs" },
 ] as const;
@@ -168,7 +166,7 @@ export const BLOG_POSTS = [
 export const AUTHORITY = [
   "Gepromoveerd op ketensamenwerking in bouw en vastgoed",
   "Specialist in complexe samenwerkingsverbanden",
-  "Ervaring met corporaties, gemeenten, bouwers en installateurs",
+  "Ervaring met corporaties, bouwers en installateurs",
   "Praktische én wetenschappelijk onderbouwde aanpak",
   "Focus op analyse, implementatie, ketenregie en meetbare resultaten",
 ] as const;

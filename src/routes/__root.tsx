@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Specialist in ketensamenwerking voor bouw, vastgoed, onderhoud, corporaties en gemeenten. Analyse, strategie, ketenregie en metingen.",
+          "Specialist in ketensamenwerking voor bouw, vastgoed, onderhoud en corporaties. Analyse, strategie, ketenregie en metingen.",
       },
       { name: "author", content: "dr.ing. Marcel Noordhuis" },
       { property: "og:site_name", content: "Ketenmanagement Interim & Advies" },
