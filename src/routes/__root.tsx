@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import ogImage from "../assets/hero-urban.jpg";
+import ogImage from "../assets/ketensamenwerking.png";
 import { reportClientError } from "../lib/error-reporting";
 import { SITE } from "../content/site";
 
@@ -97,8 +97,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Ketensamenwerking Interim & Advies is a professional expert platform for ketensamenwerking." },
       { name: "twitter:description", content: "Ketensamenwerking Interim & Advies is a professional expert platform for ketensamenwerking." },
       { property: "og:image", content: ogImageUrl },
-      { property: "og:image:width", content: "1920" },
-      { property: "og:image:height", content: "1080" },
+      { property: "og:image:width", content: "600" },
+      { property: "og:image:height", content: "313" },
       { name: "twitter:image", content: ogImageUrl },
     ],
     links: [
