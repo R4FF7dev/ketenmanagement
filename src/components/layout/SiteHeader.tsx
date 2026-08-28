@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { NAV, SITE } from "@/content/site";
 import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/titel website.avif";
+import logo from "@/assets/Ketensamenwerking copy 2.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ export function SiteHeader() {
       <TopBar />
       <div className="flex h-20 w-full items-center justify-between gap-4 px-5 md:h-24 md:px-8">
         <Link to="/" className="shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Ketensamenwerking Interim & Advies" className="h-7 w-auto" />
+          <img src={logo} alt="Ketensamenwerking Interim & Advies" className="h-14 w-auto md:h-20" />
         </Link>
 
         <nav className="hidden lg:flex" aria-label="Hoofdnavigatie">
