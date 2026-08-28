@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import ogImage from "../assets/ketensamenwerking.png";
+import ogImage from "../assets/Preview.png";
 import { reportClientError } from "../lib/error-reporting";
 import { SITE } from "../content/site";
 
