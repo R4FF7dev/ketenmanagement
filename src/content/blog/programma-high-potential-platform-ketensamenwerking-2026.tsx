@@ -51,7 +51,7 @@ const BIJEENKOMSTEN = [
     afgerond: true,
     thema:
       "RGS met een focus op TCO-optimalisatie & het toepassen van de principes van Ketensamenwerking, in combinatie een aanjager tot prestatiedoorbraken.",
-    spreker: "Lezing door Marcel Noordhuis & Egbert Kunst (Ketenmanagement Interim & Advies).",
+    spreker: "Lezing door Marcel Noordhuis & Egbert Kunst (Ketensamenwerking Interim & Advies).",
     paragraphs: [
       "Indien men met RGS aan de slag gaat, betekent dit dat men zich enerzijds richt op het optimaliseren van het keuzeproces rondom onderhoud/nieuwbouw/verduurzamen met als doelstelling de levensduurkosten (TCO) zo laag mogelijk te krijgen en de kwaliteit zo hoog mogelijk (ofwel de best mogelijke prijs/prestatie te realiseren).",
       "Het optimaliseren van de bouwopgave betekent anderzijds dat bouwpartijen steeds professioneler met elkaar moeten (gaan) samenwerken om die opgave efficiënt en effectief te kunnen uitvoeren. De toepassing van de principes van ketensamenwerking zijn een belangrijke aanjager om de organisatie van de samenwerking binnen en tussen organisaties verder te professionaliseren.",

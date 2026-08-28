@@ -63,10 +63,10 @@ export function Hero() {
                   <br />
                   email:{" "}
                   <a
-                    href="mailto:m.noordhuis@ketenmanagement.com"
+                    href="mailto:m.noordhuis@ketensamenwerking.nl"
                     className="underline hover:text-navy"
                   >
-                    m.noordhuis@ketenmanagement.com
+                    m.noordhuis@ketensamenwerking.nl
                   </a>
                   <br />
                   mobiel:{" "}
@@ -130,7 +130,7 @@ export function Hero() {
                 <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                 <div>
                   <div className="text-sm font-semibold text-white">
-                    Ketenmanagement Interim &amp; Advies
+                    Ketensamenwerking Interim &amp; Advies
                   </div>
                   <p className="mt-1 text-xs leading-relaxed text-white/75">
                     Onafhankelijk team met wetenschappelijke diepgang. Wij ondersteunen corporaties,

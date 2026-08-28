@@ -6,7 +6,7 @@ export function TopBar() {
     <div className="hidden bg-navy-deep text-white md:block">
       <div className="container-x flex h-9 items-center justify-between text-xs">
         <span className="tracking-wide">
-          Ketenmanagement Interim &amp; Advies · Specialist in ketensamenwerking
+          Ketensamenwerking Interim &amp; Advies · Specialist in ketensamenwerking
         </span>
         <div className="flex items-center gap-5">
           <a href={`mailto:${SITE.email}`} className="inline-flex items-center gap-1.5">

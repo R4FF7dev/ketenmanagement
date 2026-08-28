@@ -51,7 +51,7 @@ const pillars = [
 export const Route = createFileRoute("/over-ons")({
   head: () => ({
     meta: [
-      { title: "Over Marcel Noordhuis — Ketenmanagement Interim & Advies" },
+      { title: "Over Marcel Noordhuis — Ketensamenwerking Interim & Advies" },
       {
         name: "description",
         content:

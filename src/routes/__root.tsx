@@ -81,21 +81,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ketenmanagement Interim & Advies — dr.ing. Marcel Noordhuis" },
+      { title: "Ketensamenwerking Interim & Advies — dr.ing. Marcel Noordhuis" },
       {
         name: "description",
         content:
           "Specialist in ketensamenwerking voor bouw, vastgoed, onderhoud en corporaties. Analyse, strategie, ketenregie en metingen.",
       },
       { name: "author", content: "dr.ing. Marcel Noordhuis" },
-      { property: "og:site_name", content: "Ketenmanagement Interim & Advies" },
+      { property: "og:site_name", content: "Ketensamenwerking Interim & Advies" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "Ketenmanagement Interim & Advies — dr.ing. Marcel Noordhuis" },
-      { name: "twitter:title", content: "Ketenmanagement Interim & Advies — dr.ing. Marcel Noordhuis" },
-      { name: "description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
-      { property: "og:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
-      { name: "twitter:description", content: "Ketenmanagement Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { property: "og:title", content: "Ketensamenwerking Interim & Advies — dr.ing. Marcel Noordhuis" },
+      { name: "twitter:title", content: "Ketensamenwerking Interim & Advies — dr.ing. Marcel Noordhuis" },
+      { name: "description", content: "Ketensamenwerking Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { property: "og:description", content: "Ketensamenwerking Interim & Advies is a professional expert platform for ketensamenwerking." },
+      { name: "twitter:description", content: "Ketensamenwerking Interim & Advies is a professional expert platform for ketensamenwerking." },
       { property: "og:image", content: ogImageUrl },
       { property: "og:image:width", content: "1920" },
       { property: "og:image:height", content: "1080" },
@@ -116,7 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
-          name: "Ketenmanagement Interim & Advies",
+          name: "Ketensamenwerking Interim & Advies",
           description:
             "Advies, ketenregie en metingen voor ketensamenwerking in bouw, vastgoed en onderhoud.",
           areaServed: "NL",

@@ -7,7 +7,7 @@ import { SectionLabel } from "@/components/ui/section-label";
 export const Route = createFileRoute("/opdrachtgevers")({
   head: () => ({
     meta: [
-      { title: "Opdrachtgevers — Ketenmanagement" },
+      { title: "Opdrachtgevers — Ketensamenwerking" },
       {
         name: "description",
         content:

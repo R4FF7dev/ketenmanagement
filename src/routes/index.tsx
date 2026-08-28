@@ -12,13 +12,13 @@ import { ContactCta } from "@/components/sections/ContactCta";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ketenmanagement Interim & Advies — Expert ketensamenwerking" },
+      { title: "Ketensamenwerking Interim & Advies — Expert ketensamenwerking" },
       {
         name: "description",
         content:
           "dr.ing. Marcel Noordhuis helpt bouw, vastgoed en corporaties om ketensamenwerking meetbaar, bestuurbaar en resultaatgericht te maken.",
       },
-      { property: "og:title", content: "Ketenmanagement Interim & Advies" },
+      { property: "og:title", content: "Ketensamenwerking Interim & Advies" },
       {
         property: "og:description",
         content: "Van analyse naar succesvolle implementatie van ketensamenwerking.",

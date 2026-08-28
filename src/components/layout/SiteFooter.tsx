@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-navy-deep text-white/80">
       <div className="container-x grid gap-12 py-16 md:grid-cols-4">
         <div>
-          <div className="font-display text-lg font-semibold text-white">Ketenmanagement</div>
+          <div className="font-display text-lg font-semibold text-white">Ketensamenwerking</div>
           <div className="text-[11px] uppercase tracking-[0.18em] text-white/50">
             Interim &amp; Advies
           </div>
@@ -73,7 +73,7 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-white"
               >
-                <Globe className="h-4 w-4" aria-hidden /> ketenmanagement.com
+                <Globe className="h-4 w-4" aria-hidden /> ketensamenwerking.nl
               </a>
             </li>
             <li>

@@ -7,13 +7,13 @@ import { SERVICES } from "@/content/site";
 export const Route = createFileRoute("/diensten")({
   head: () => ({
     meta: [
-      { title: "Diensten — Ketenmanagement Interim & Advies" },
+      { title: "Diensten — Ketensamenwerking Interim & Advies" },
       {
         name: "description",
         content:
           "Ketenanalyse, strategie, partnerselectie, ketenregie, dashboarding en inspiratiesessies voor betere ketensamenwerking.",
       },
-      { property: "og:title", content: "Diensten — Ketenmanagement" },
+      { property: "og:title", content: "Diensten — Ketensamenwerking" },
       {
         property: "og:description",
         content: "Diensten voor analyse, strategie, ketenregie en metingen.",

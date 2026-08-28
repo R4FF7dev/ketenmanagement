@@ -25,10 +25,10 @@ export function ImpactVanIncentivesystemenInDeBouw() {
       </p>
       <p className="mt-5 text-sm text-slate-soft">
         Door: dr.ing. Marcel Noordhuis, e-mail:{" "}
-        <a href="mailto:m.noordhuis@ketenmanagement.com" className="underline hover:text-navy">
-          m.noordhuis@ketenmanagement.com
+        <a href="mailto:m.noordhuis@ketensamenwerking.nl" className="underline hover:text-navy">
+          m.noordhuis@ketensamenwerking.nl
         </a>{" "}
-        [Ketenmanagement Interim &amp; Advies]
+        [Ketensamenwerking Interim &amp; Advies]
       </p>
 
       <h2 className="mt-14 font-display text-2xl font-semibold text-navy-deep md:text-3xl">

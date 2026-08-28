@@ -23,7 +23,7 @@ export const Route = createFileRoute("/publicaties/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.title} — Ketenmanagement Interim & Advies` },
+          { title: `${loaderData.title} — Ketensamenwerking Interim & Advies` },
           { name: "description", content: loaderData.excerpt },
           { property: "og:title", content: loaderData.title },
           { property: "og:description", content: loaderData.excerpt },

@@ -9,7 +9,7 @@ import { Mail, Phone, Globe, BookOpen, MapPin } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Ketenmanagement Interim & Advies" },
+      { title: "Contact — Ketensamenwerking Interim & Advies" },
       {
         name: "description",
         content:
@@ -95,7 +95,7 @@ function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Globe className="h-4 w-4" aria-hidden /> ketenmanagement.com
+                      <Globe className="h-4 w-4" aria-hidden /> ketensamenwerking.nl
                     </a>
                   </dd>
                 </div>

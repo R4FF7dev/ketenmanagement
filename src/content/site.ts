@@ -31,13 +31,13 @@ import ksiBrochure from "@/assets/Externe_Keten_Maturity_Meting__KSI_20260819114
 import kr8Brochure from "@/assets/KR8_VAN_ZACHT__KvZ__METING_20260819115516.pdf";
 
 export const SITE = {
-  name: "Ketenmanagement Interim & Advies",
-  shortName: "Ketenmanagement",
+  name: "Ketensamenwerking Interim & Advies",
+  shortName: "Ketensamenwerking",
   person: "dr.ing. Marcel Noordhuis",
-  email: "info@ketenmanagement.com",
+  email: "info@ketensamenwerking.nl",
   linkedin: "https://www.linkedin.com/in/marcelnoordhuis/",
   blog: "https://ketensamenwerking.blog/",
-  website: "https://www.ketenmanagement.com/",
+  website: "https://www.ketensamenwerking.nl/",
 };
 
 // SociableKIT "LinkedIn Profile Posts" widget (Pro plan, sociablekit.com).
