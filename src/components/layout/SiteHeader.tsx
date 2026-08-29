@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { NAV, SITE } from "@/content/site";
 import { TopBar } from "./TopBar";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/Ketensamenwerking copy 2.png";
+import logo from "@/assets/Ketensamenwerking.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
