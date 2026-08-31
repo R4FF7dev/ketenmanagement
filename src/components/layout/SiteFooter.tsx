@@ -60,10 +60,10 @@ export function SiteFooter() {
             <li className="text-white">{SITE.person}</li>
             <li>
               <a
-                href={`mailto:${SITE.email}`}
+                href="mailto:m.noordhuis@ketensamenwerking.nl"
                 className="inline-flex items-center gap-2 hover:text-white"
               >
-                <Mail className="h-4 w-4" aria-hidden /> {SITE.email}
+                <Mail className="h-4 w-4" aria-hidden /> m.noordhuis@ketensamenwerking.nl
               </a>
             </li>
             <li>
