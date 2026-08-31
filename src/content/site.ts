@@ -26,9 +26,9 @@ import lescautLogo from "@/assets/Klanten/lescaut.avif";
 import wonenNwfLogo from "@/assets/Klanten/wonen nwf.avif";
 import woonbedrijfLogo from "@/assets/Klanten/woonbedrijf.avif";
 import wonenBreburgLogo from "@/assets/Klanten/a3ff2d_7f8cb9fe5fd848c3b7212d954952fccb~mv2.avif";
-import kmmBrochure from "@/assets/Interne_Keten_Maturity_Meting__KMM_20260819115238.pdf";
-import ksiBrochure from "@/assets/Externe_Keten_Maturity_Meting__KSI_20260819114824.pdf";
-import kr8Brochure from "@/assets/KR8_VAN_ZACHT__KvZ__METING_20260819115516.pdf";
+import kmmBrochure from "@/assets/Interne_Keten_Maturity_Meting__KMM_20260831090322.pdf";
+import ksiBrochure from "@/assets/Externe_Keten_Maturity_Meting__KSI_20260831090708.pdf";
+import kr8Brochure from "@/assets/KR8_VAN_ZACHT__KvZ__METING_20260831090338.pdf";
 
 export const SITE = {
   name: "Ketensamenwerking Interim & Advies",
