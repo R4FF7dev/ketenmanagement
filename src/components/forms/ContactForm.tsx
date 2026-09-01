@@ -1,23 +1,7 @@
 import { useState } from "react";
-import { z } from "zod";
-import { SITE } from "@/content/site";
-import { Send, CheckCircle2 } from "lucide-react";
-
-const schema = z.object({
-  bedrijf: z.string().trim().min(1, "Vul uw bedrijf in").max(120),
-  naam: z.string().trim().min(1, "Vul uw naam in").max(120),
-  functie: z.string().trim().min(1, "Vul uw functie in").max(120),
-  email: z.string().trim().email("Ongeldig e-mailadres").max(200),
-  telefoon: z
-    .string()
-    .trim()
-    .max(40)
-    .regex(/^[+0-9 ()\-./]*$/, "Ongeldig telefoonnummer")
-    .optional()
-    .or(z.literal("")),
-  interesse: z.string().trim().min(1, "Maak een keuze"),
-  bericht: z.string().trim().min(1, "Vul een korte vraag of toelichting in").max(2000),
-});
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { contactSchema as schema, type ContactFormData } from "@/lib/contact-schema";
+import { sendContactEmail } from "@/lib/contact-mailer";
 
 const INTERESSE_OPTIONS = [
   "Nader kennis willen maken (wij nemen contact met u op)",
@@ -27,8 +11,7 @@ const INTERESSE_OPTIONS = [
   "Gebruik willen maken van de Kr8 van Zacht meting (KVZ)",
 ];
 
-type FormState = z.infer<typeof schema>;
-type Errors = Partial<Record<keyof FormState, string>>;
+type Errors = Partial<Record<keyof ContactFormData, string>>;
 
 const fieldClass =
   "mt-2 w-full rounded-md border border-hairline bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-slate-soft/60 focus:border-navy focus:outline-none focus:ring-2 focus:ring-navy/15";
@@ -37,8 +20,10 @@ const labelClass = "text-xs font-semibold uppercase tracking-[0.16em] text-navy-
 export function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd) as Record<string, string>;
@@ -46,20 +31,25 @@ export function ContactForm() {
     if (!parsed.success) {
       const errs: Errors = {};
       for (const issue of parsed.error.issues) {
-        const k = issue.path[0] as keyof FormState;
+        const k = issue.path[0] as keyof ContactFormData;
         if (!errs[k]) errs[k] = issue.message;
       }
       setErrors(errs);
       return;
     }
     setErrors({});
-    const v = parsed.data;
-    const body = `Bedrijf: ${v.bedrijf}\nNaam: ${v.naam}\nFunctie: ${v.functie}\nE-mail: ${v.email}\nTelefoon: ${v.telefoon ?? ""}\nIk zou graag: ${v.interesse}\n\n${v.bericht}`;
-    const href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      `Kennismaking — ${v.bedrijf}`,
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
-    setSent(true);
+    setSubmitError(null);
+    setSending(true);
+    try {
+      await sendContactEmail({ data: parsed.data });
+      setSent(true);
+    } catch {
+      setSubmitError(
+        "Verzenden is niet gelukt. Probeer het opnieuw of mail ons rechtstreeks.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   if (sent) {
@@ -70,8 +60,7 @@ export function ContactForm() {
           Bedankt voor uw bericht
         </h3>
         <p className="mt-2 text-sm text-slate-soft">
-          Uw e-mailclient is geopend. Verzend de e-mail om uw kennismaking te bevestigen. U ontvangt
-          zo spoedig mogelijk reactie.
+          Uw bericht is verzonden. U ontvangt zo spoedig mogelijk reactie.
         </p>
       </div>
     );
@@ -149,15 +138,19 @@ export function ContactForm() {
         <textarea id="bericht" name="bericht" rows={5} className={fieldClass} />
         {errors.bericht && <p className="mt-1 text-xs text-destructive">{errors.bericht}</p>}
       </div>
-      <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs text-slate-soft">
-          Bij verzending opent uw e-mailclient met uw bericht.
-        </p>
+      {submitError && (
+        <div className="sm:col-span-2 flex items-start gap-2 rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+          {submitError}
+        </div>
+      )}
+      <div className="sm:col-span-2 flex flex-wrap items-center justify-end gap-3">
         <button
           type="submit"
-          className="inline-flex items-center gap-2 rounded-md bg-orange px-6 py-3 text-sm font-semibold text-white hover:bg-orange/90"
+          disabled={sending}
+          className="inline-flex items-center gap-2 rounded-md bg-orange px-6 py-3 text-sm font-semibold text-white hover:bg-orange/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Versturen
+          {sending ? "Versturen…" : "Versturen"}
           <Send className="h-4 w-4" aria-hidden />
         </button>
       </div>
