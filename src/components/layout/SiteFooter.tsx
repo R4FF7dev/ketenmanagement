@@ -95,6 +95,17 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {SITE.name}. Alle rechten voorbehouden.
           </span>
           <span>dr.ing. Marcel Noordhuis · KvK-geregistreerd</span>
+          <span>
+            Deze website is gebouwd door{" "}
+            <a
+              href="https://ukonnect.ai/nl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white"
+            >
+              Ukonnect
+            </a>
+          </span>
         </div>
       </div>
     </footer>
