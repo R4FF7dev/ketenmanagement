@@ -1,12 +1,4 @@
-import {
-  Network,
-  Compass,
-  Handshake,
-  ClipboardList,
-  HardHat,
-  Wrench,
-  Home,
-} from "lucide-react";
+import { Network, Compass, Handshake, ClipboardList, HardHat, Wrench, Home } from "lucide-react";
 import executivePlatformCover from "@/assets/Kasteel-de-Vanenburg-f9343613f36fd50dacead36189b7a226c86327f8.jpg";
 import incentiveSystemsCover from "@/assets/incentive_pexels-pixabay-355948.jpg";
 import carefosLogo from "@/assets/Klanten/Carefos v2.avif";
@@ -26,9 +18,9 @@ import lescautLogo from "@/assets/Klanten/lescaut.avif";
 import wonenNwfLogo from "@/assets/Klanten/wonen nwf.avif";
 import woonbedrijfLogo from "@/assets/Klanten/woonbedrijf.avif";
 import wonenBreburgLogo from "@/assets/Klanten/a3ff2d_7f8cb9fe5fd848c3b7212d954952fccb~mv2.avif";
-import kmmBrochure from "@/assets/Interne_Keten_Maturity_Meting__KMM_20260831090322.pdf";
-import ksiBrochure from "@/assets/Externe_Keten_Maturity_Meting__KSI_20260831090708.pdf";
-import kr8Brochure from "@/assets/KR8_VAN_ZACHT__KvZ__METING_20260831090338.pdf";
+import kmmBrochure from "@/assets/KMM__.pdf";
+import ksiBrochure from "@/assets/KSI__.pdf";
+import kr8Brochure from "@/assets/KR8__.pdf";
 
 export const SITE = {
   name: "Ketensamenwerking Interim & Advies",
@@ -160,6 +152,91 @@ export const BLOG_POSTS = [
     excerpt:
       "Het High Potential Platform Ketensamenwerking brengt managers, projectleiders en sleutelfiguren uit de bouw- en vastgoedsector samen die willen uitblinken in het toepassen van ketensamenwerking en RGS. Bekijk het programma, de deelnemers en de vier bijeenkomsten van 2026.",
     cover: executivePlatformCover,
+  },
+] as const;
+
+export const PLATFORM_EVENTS = [
+  {
+    platform: "Executive Platform",
+    slug: "programma-executive-platform-ketensamenwerking-2026",
+    nummer: 1,
+    dateLabel: "Donderdag 5 maart 2026",
+    time: "15:30 – 20:00",
+    endsAt: "2026-03-05T20:30:00",
+    thema: "Laatste inzichten rondom ketensamenwerking vanuit de wetenschap en praktijk",
+    spreker: "prof.dr. Jack van der Veen, Nyenrode Business Universiteit",
+  },
+  {
+    platform: "High Potential Platform",
+    slug: "programma-high-potential-platform-ketensamenwerking-2026",
+    nummer: 1,
+    dateLabel: "Donderdag 5 maart 2026",
+    time: "12:00 – 15:30",
+    endsAt: "2026-03-05T15:30:00",
+    thema:
+      "RGS met een focus op TCO-optimalisatie & het toepassen van de principes van Ketensamenwerking",
+    spreker: "Marcel Noordhuis & Egbert Kunst, Ketensamenwerking Interim & Advies",
+  },
+  {
+    platform: "Executive Platform",
+    slug: "programma-executive-platform-ketensamenwerking-2026",
+    nummer: 2,
+    dateLabel: "Donderdag 4 juni 2026",
+    time: "15:30 – 20:00",
+    endsAt: "2026-06-04T20:30:00",
+    thema: "Het grondig evalueren van een bestaande samenwerking met meerdere ketenpartners",
+    spreker: "Ivo Hoppe, manager vastgoed, GoedeStede",
+  },
+  {
+    platform: "High Potential Platform",
+    slug: "programma-high-potential-platform-ketensamenwerking-2026",
+    nummer: 2,
+    dateLabel: "Donderdag 4 juni 2026",
+    time: "12:00 – 15:30",
+    endsAt: "2026-06-04T15:30:00",
+    thema: "Laatste inzichten rondom ketensamenwerking vanuit de wetenschap en praktijk",
+    spreker: "prof.dr. Jack van der Veen, Nyenrode Business Universiteit",
+  },
+  {
+    platform: "Executive Platform",
+    slug: "programma-executive-platform-ketensamenwerking-2026",
+    nummer: 3,
+    dateLabel: "Donderdag 17 september 2026",
+    time: "15:30 – 20:00",
+    endsAt: "2026-09-17T20:30:00",
+    thema: "In vertrouwen werken aan de renovatie van het Binnenhof",
+    spreker: "Peter van Leeuwen, programmadirecteur Binnenhofrenovatie",
+  },
+  {
+    platform: "High Potential Platform",
+    slug: "programma-high-potential-platform-ketensamenwerking-2026",
+    nummer: 3,
+    dateLabel: "Donderdag 17 september 2026",
+    time: "12:00 – 15:30",
+    endsAt: "2026-09-17T15:30:00",
+    thema: "Voorspelbaar onderhoud: de route naar optimale vervangingsmomenten en budgetplanning",
+    spreker: "Brendan Kleer, Croonwolter&dros",
+  },
+  {
+    platform: "Executive Platform",
+    slug: "programma-executive-platform-ketensamenwerking-2026",
+    nummer: 4,
+    dateLabel: "Donderdag 12 november 2026",
+    time: "15:30 – 20:00",
+    endsAt: "2026-11-12T20:30:00",
+    thema: "Ervaringen rondom de energietransitie en opschaling van de publieke infrastructuur",
+    spreker: "Michel Wauters, directeur hoogspanningsstations, Enexis",
+  },
+  {
+    platform: "High Potential Platform",
+    slug: "programma-high-potential-platform-ketensamenwerking-2026",
+    nummer: 4,
+    dateLabel: "Donderdag 12 november 2026",
+    time: "12:00 – 15:30",
+    endsAt: "2026-11-12T15:30:00",
+    thema:
+      "Ervaringen met KSW/RGS kijkend naar de organisatie-inrichting en optimalisatie van de bouwopgave",
+    spreker: "Mark van Logten, Knaapen",
   },
 ] as const;
 
