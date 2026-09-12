@@ -133,7 +133,7 @@ export function ContactForm() {
       </div>
       <div className="sm:col-span-2">
         <label htmlFor="bericht" className={labelClass}>
-          Waar wilt u meer over weten?
+          Uw overige vragen?
         </label>
         <textarea id="bericht" name="bericht" rows={5} className={fieldClass} />
         {errors.bericht && <p className="mt-1 text-xs text-destructive">{errors.bericht}</p>}

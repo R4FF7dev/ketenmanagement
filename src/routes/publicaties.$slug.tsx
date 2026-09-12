@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { SectionLabel } from "@/components/ui/section-label";
 import { ContactCta } from "@/components/sections/ContactCta";
@@ -13,6 +13,11 @@ const BLOG_CONTENT: Record<string, () => React.JSX.Element> = {
   "impact-van-incentivesystemen-in-de-bouw": ImpactVanIncentivesystemenInDeBouw,
   "programma-high-potential-platform-ketensamenwerking-2026": ProgrammaHighPotentialPlatform2026,
 };
+
+const PLATFORM_PROGRAMMA_SLUGS = new Set([
+  "programma-executive-platform-ketensamenwerking-2026",
+  "programma-high-potential-platform-ketensamenwerking-2026",
+]);
 
 export const Route = createFileRoute("/publicaties/$slug")({
   loader: ({ params }) => {
@@ -37,6 +42,7 @@ export const Route = createFileRoute("/publicaties/$slug")({
 function BlogPostPage() {
   const post = Route.useLoaderData();
   const Content = BLOG_CONTENT[post.slug];
+  const isPlatformProgramma = PLATFORM_PROGRAMMA_SLUGS.has(post.slug);
 
   return (
     <SiteShell>
@@ -55,7 +61,7 @@ function BlogPostPage() {
           <h1 className="heading-rule mt-5 font-display text-3xl font-semibold text-navy-deep md:text-5xl">
             {post.title}
           </h1>
-          <div className="mt-10 aspect-[21/9] w-full overflow-hidden rounded-lg border border-hairline">
+          <div className="mx-auto mt-10 aspect-video w-full max-w-md overflow-hidden rounded-lg border border-hairline">
             <img
               src={post.cover}
               alt={post.title}
@@ -64,11 +70,24 @@ function BlogPostPage() {
               className="h-full w-full object-cover"
             />
           </div>
+          {isPlatformProgramma && (
+            <div className="mt-6 flex justify-center">
+              <a
+                href="https://platform-ketensamenwerking.nl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-orange px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange/90"
+              >
+                Bekijk het volledige platform
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="container-x max-w-3xl py-16 md:py-24">
+        <div className="container-x max-w-5xl py-16 md:py-24">
           {Content ? (
             <Content />
           ) : (

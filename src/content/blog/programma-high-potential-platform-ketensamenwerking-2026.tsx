@@ -1,5 +1,16 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  Calendar,
+  CheckCircle2,
+  Clock,
+  Compass,
+  MapPin,
+  ShieldCheck,
+  Ship,
+  Target,
+} from "lucide-react";
 import tcoImage from "@/assets/blog 1/TCO.png";
 import introImage from "@/assets/blog 1/Ketensamenwerking-Intern-Extern-BLMC-1200x630-1.jpg";
 import predictiveMaintenanceImage from "@/assets/blog 1/predictive-maintenance.jpg";
@@ -44,9 +55,10 @@ const STANDARD_SCHEDULE = (spreker: string) => [
   { time: "15:30 – 16:00", activity: "Borrel en napraten" },
 ];
 
-const BIJEENKOMSTEN = [
+export const HP_BIJEENKOMSTEN = [
   {
     nummer: 1,
+    icon: Target,
     datum: "Donderdag 5 maart 2026, 12:00 – 15:30",
     afgerond: true,
     thema:
@@ -63,6 +75,7 @@ const BIJEENKOMSTEN = [
   },
   {
     nummer: 2,
+    icon: Ship,
     datum: "Donderdag 4 juni 2026, 12:00 – 15:30",
     afgerond: true,
     thema: "Laatste inzichten rondom ketensamenwerking vanuit de wetenschap en praktijk.",
@@ -78,12 +91,14 @@ const BIJEENKOMSTEN = [
   },
   {
     nummer: 3,
+    icon: BarChart3,
     datum: "Donderdag 17 september 2026, 12:00 – 15:30",
     afgerond: false,
     thema: "Voorspelbaar onderhoud: de route naar optimale vervangingsmomenten en budgetplanning.",
     spreker: "Lezing door Brendan Kleer, Croonwolter&dros.",
     paragraphs: [
-      "De voordelen van voorspelbaar onderhoud zijn duidelijk: door inzichten in de conditie van je assets kun je operationeel beter plannen en ook financieel voorspelbaarder zijn en daardoor besparen zonder extra risico’s en met behoud van de prestaties. Hoe zorg je nou voor de implementatie van deze strategie in je bedrijf of project? En waar zit de urgentie om de nodige digitalisering toe te passen, oftewel waarom zou je er nu in moeten investeren?",
+      "De voordelen van voorspelbaar onderhoud zijn duidelijk: door inzichten in de conditie van je assets kun je operationeel beter plannen en ook financieel voorspelbaarder zijn en daardoor besparen zonder extra risico’s en met behoud van de prestaties.",
+      "Hoe zorg je nou voor de implementatie van deze strategie in je bedrijf of project? En waar zit de urgentie om de nodige digitalisering toe te passen, oftewel waarom zou je er nu in moeten investeren?",
       "In dit college brengt Brendan zijn kennis en kunde in om middels slimme inzet van data het onderhoudsproces slimmer in te richten, voorspelbaarder te maken en de TCO te verlagen.",
     ],
     schedule: STANDARD_SCHEDULE("Brendan Kleer (Croonwolter & dros)"),
@@ -91,6 +106,7 @@ const BIJEENKOMSTEN = [
   },
   {
     nummer: 4,
+    icon: Compass,
     datum: "Donderdag 12 november 2026, 12:00 – 15:30",
     afgerond: false,
     thema:
@@ -150,95 +166,156 @@ export function ProgrammaHighPotentialPlatform2026() {
       <p className="mt-2 text-sm font-semibold uppercase tracking-[0.1em] text-orange">
         Voor managers, projectleiders en sleutelfiguren
       </p>
-      <div className="mt-6 space-y-14">
-        {BIJEENKOMSTEN.map((b) => (
-          <article
-            key={b.nummer}
-            id={`bijeenkomst-${b.nummer}`}
-            className="scroll-mt-24 border-t border-hairline pt-10 first:border-t-0 first:pt-0"
-          >
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="font-mono text-xs font-semibold text-orange">
-                Bijeenkomst {b.nummer}
-              </span>
-              <span className="text-sm text-slate-soft">{b.datum}</span>
-              {b.afgerond && (
-                <span className="rounded bg-navy/5 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-navy">
-                  Geweest
-                </span>
-              )}
-            </div>
-            <h3 className="mt-3 font-display text-xl font-semibold text-navy-deep">{b.thema}</h3>
-            <p className="mt-2 text-sm font-semibold text-slate-soft">{b.spreker}</p>
-
-            {b.paragraphs.map((p, i) => (
-              <p key={i} className="mt-4 text-base leading-relaxed text-slate-soft">
-                {p}
-              </p>
-            ))}
-
-            {b.image && (
-              <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-lg border border-hairline">
-                <img
-                  src={b.image.src}
-                  alt={b.image.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover"
+      <div className="mt-6 space-y-6">
+        {HP_BIJEENKOMSTEN.map((b) => {
+          const Icon = b.icon;
+          return (
+            <article
+              key={b.nummer}
+              id={`bijeenkomst-${b.nummer}`}
+              className={`group relative scroll-mt-24 overflow-hidden rounded-lg border border-hairline bg-white p-8 transition-colors ${
+                b.afgerond ? "" : "hover:border-orange/40"
+              }`}
+            >
+              {!b.afgerond && (
+                <span
+                  className="absolute inset-y-0 left-0 w-0.5 bg-orange opacity-0 transition-opacity group-hover:opacity-100"
+                  aria-hidden
                 />
+              )}
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-navy/5 text-navy">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-semibold uppercase tracking-[0.16em] text-orange">
+                        Bijeenkomst {b.nummer}
+                      </span>
+                      {b.afgerond && (
+                        <span className="rounded-full bg-hairline px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-soft">
+                          Geweest
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-1 flex items-center gap-1.5 text-sm text-slate-soft">
+                      <Calendar className="h-4 w-4" aria-hidden />
+                      {b.datum}
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
 
-            {b.schedule && (
-              <ul className="mt-6 space-y-1.5 rounded-lg bg-surface p-5 text-sm text-slate-soft">
-                {b.schedule.map((s) => (
-                  <li key={s.time} className="flex gap-3">
-                    <span className="w-32 shrink-0 font-mono text-xs text-orange">{s.time}</span>
-                    <span>{s.activity}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </article>
-        ))}
+              <h3 className="mt-6 font-display text-xl font-semibold text-navy-deep">{b.thema}</h3>
+              <div className="mt-2 text-sm font-semibold text-navy">{b.spreker}</div>
+              <div className="mt-4 max-w-3xl space-y-4 text-sm leading-relaxed text-slate-soft">
+                {b.paragraphs.map((p, i) =>
+                  i === 1 ? (
+                    <p
+                      key={i}
+                      className="rounded-md border-l-2 border-orange bg-surface py-2.5 pl-4 text-ink/75"
+                    >
+                      {p}
+                    </p>
+                  ) : (
+                    <p key={i}>{p}</p>
+                  ),
+                )}
+              </div>
+
+              {b.image && (
+                <div className="relative mt-6 aspect-[16/9] w-full max-w-xs overflow-hidden rounded-lg border border-hairline">
+                  <img
+                    src={b.image.src}
+                    alt={b.image.alt}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              )}
+
+              {b.schedule && (
+                <div className="mt-6 border-t border-hairline pt-6 text-sm text-slate-soft sm:columns-2 sm:gap-x-8">
+                  {b.schedule.map((s) => (
+                    <div key={s.time} className="mb-2 flex items-start gap-2 break-inside-avoid">
+                      <Clock className="mt-0.5 h-4 w-4 shrink-0 text-orange" aria-hidden />
+                      <span>
+                        <span className="font-semibold text-navy-deep">{s.time}</span> {s.activity}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {b.afgerond && (
+                <div className="mt-6 flex items-center gap-2.5 rounded-md bg-surface px-4 py-3 text-xs text-slate-soft">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-orange" aria-hidden />
+                  Deze bijeenkomst heeft al plaatsgevonden. Leden kunnen de opname terugkijken via
+                  de SharePoint-omgeving.
+                </div>
+              )}
+            </article>
+          );
+        })}
       </div>
 
-      <h2 className="mt-14 font-display text-2xl font-semibold text-navy-deep md:text-3xl">
-        Locatie
-      </h2>
-      <p className="mt-5 text-base leading-relaxed text-slate-soft">
-        De platformbijeenkomsten vinden plaats op het terrein van Kasteel de Vanenburg,
-        Vanenburgerallee 13, 3882 RH te Putten. Het ontvangst, de lunch en het diner vinden plaats
-        in het Kasteel. De lezingen vinden plaats in de Oranjerie, de zaal gelegen direct naast het
-        Kasteel.
-      </p>
+      <div className="mt-6 grid gap-6 sm:grid-cols-2">
+        <div className="rounded-lg border border-hairline bg-white p-6">
+          <div className="flex items-center gap-2.5">
+            <MapPin className="h-4 w-4 text-orange" aria-hidden />
+            <h4 className="font-display text-base font-semibold text-navy-deep">Locatie</h4>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-slate-soft">
+            De platformbijeenkomsten vinden plaats op het terrein van Kasteel de Vanenburg,
+            Vanenburgerallee 13, 3882 RH te Putten. Het ontvangst, de lunch en het diner vinden
+            plaats in het Kasteel. De lezingen vinden plaats in de Oranjerie, de zaal gelegen direct
+            naast het Kasteel.
+          </p>
+        </div>
 
-      <h2 className="mt-14 font-display text-2xl font-semibold text-navy-deep md:text-3xl">
-        Zekerheden
-      </h2>
-      <p className="mt-5 text-base leading-relaxed text-slate-soft">
-        Om er voor te zorgen dat men altijd aan de platformbijeenkomsten kan deelnemen, hebben we
-        een aantal zekerheden ingebouwd:
-      </p>
-      <ul className="mt-5 space-y-3">
-        {ZEKERHEDEN.map((punt, i) => (
-          <li key={i} className="flex gap-3 text-base leading-relaxed text-slate-soft">
-            <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-orange" aria-hidden />
-            {punt}
-          </li>
-        ))}
-      </ul>
+        <div className="rounded-lg border border-hairline bg-white p-6">
+          <div className="flex items-center gap-2.5">
+            <ShieldCheck className="h-4 w-4 text-orange" aria-hidden />
+            <h4 className="font-display text-base font-semibold text-navy-deep">Zekerheden</h4>
+          </div>
+          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-soft">
+            {ZEKERHEDEN.map((punt, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="text-orange">&middot;</span>
+                {punt}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-      <p className="mt-8 text-base leading-relaxed text-slate-soft">
-        Meer weten over deelname aan het High Potential Platform Ketensamenwerking? Neem contact met
-        ons op.
-      </p>
-      <Link
-        to="/contact"
-        className="mt-6 inline-flex items-center gap-2 rounded-md bg-orange px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange/90"
-      >
-        Neem contact op
-        <ArrowRight className="h-4 w-4" aria-hidden />
-      </Link>
+      <div className="mt-6 rounded-lg border border-navy/15 bg-navy p-6 text-white sm:p-8">
+        <div className="flex flex-wrap items-center justify-between gap-6">
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-orange">
+              Deelnemen
+            </div>
+            <div className="mt-2 font-display text-2xl font-semibold">
+              &euro;1.400{" "}
+              <span className="text-sm font-normal text-white/60">ex. btw per jaar</span>
+            </div>
+            <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/75">
+              U meldt zich aan voor het volledige High Potential Platform, niet per losse
+              bijeenkomst: u ontvangt toegang tot alle (resterende) bijeenkomsten van het lopende
+              jaar, inclusief lunch, borrel en introducé (1 live en 3 digitaal). Stapt u later in,
+              dan betaalt u naar rato van het aantal bijeenkomsten dat nog resteert.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex shrink-0 items-center gap-2 rounded-md bg-orange px-5 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange/90"
+          >
+            Meld u aan voor het High Potential Platform
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+      </div>
     </>
   );
 }

@@ -1,20 +1,27 @@
 import { SECTORS } from "@/content/site";
 import { SectionLabel } from "@/components/ui/section-label";
 
-export function SectorsGrid() {
+export function SectorsGrid({
+  as: Heading = "h2",
+  description = "Organisaties die in complexe ketens samenwerken aan grote maatschappelijke en bouwopgaven. Onafhankelijk en sectoroverstijgend.",
+}: {
+  as?: "h1" | "h2";
+  description?: string;
+} = {}) {
   return (
     <section className="bg-surface">
       <div className="container-x py-20 md:py-28">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <SectionLabel>Opdrachtgevers</SectionLabel>
-            <h2 className="heading-rule mt-5 font-display text-3xl font-semibold md:text-4xl">
+            <Heading
+              className={`heading-rule mt-5 font-display font-semibold text-navy-deep ${
+                Heading === "h1" ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
+              }`}
+            >
               Voor wie werken wij?
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-slate-soft">
-              Organisaties die in complexe ketens samenwerken aan grote maatschappelijke en
-              bouwopgaven. Onafhankelijk en sectoroverstijgend.
-            </p>
+            </Heading>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-slate-soft">{description}</p>
           </div>
 
           <ul className="grid gap-px overflow-hidden rounded-lg border border-hairline bg-hairline sm:grid-cols-2 lg:col-span-7 lg:grid-cols-3">

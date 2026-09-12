@@ -32,8 +32,8 @@ export const SITE = {
   website: "https://www.ketensamenwerking.nl/",
 };
 
-// SociableKIT "LinkedIn Profile Posts" widget (Pro plan, sociablekit.com).
-export const SOCIABLEKIT_LINKEDIN_WIDGET_ID: string = "25695335";
+// SociableKIT "LinkedIn Page Posts" iframe widget (sociablekit.com).
+export const SOCIABLEKIT_LINKEDIN_WIDGET_ID: string = "25713279";
 
 export const NAV = [
   { to: "/", label: "Home" },
