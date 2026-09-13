@@ -4,7 +4,7 @@ import { SectionLabel } from "@/components/ui/section-label";
 
 const PUBLICATIONS = [
   {
-    title: "Ketensamenwerkingsorganisatiemodellen",
+    title: "Ketensamenwerking organisatiemodellen",
     date: "Oktober 2012",
     body: (
       <>
