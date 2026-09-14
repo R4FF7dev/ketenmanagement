@@ -27,7 +27,7 @@ export const SITE = {
   shortName: "Ketensamenwerking",
   person: "dr.ing. Marcel Noordhuis",
   email: "info@ketensamenwerking.nl",
-  linkedin: "https://www.linkedin.com/in/marcelnoordhuis/",
+  linkedin: "https://www.linkedin.com/company/ketensamenwerking-interim-advies",
   blog: "https://ketensamenwerking.blog/",
   website: "https://www.ketensamenwerking.nl/",
 };
